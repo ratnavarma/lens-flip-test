@@ -1,0 +1,67 @@
+{
+  "arm_configs": {
+    "R": "52d4041d5d5fcd4107bdaa4c5ba812674b6061366cbd8b6bfb56cc39c961137a",
+    "X": "cd64183a94d85a8fb99ab593acfded92576ad8c464cd21550c0c42a99c5fef1c"
+  },
+  "calibration_sha256": "7dfa41aa22ab0772d3fc9e8b428f388ffa85f7e18686f9c958f14ec1f0727225",
+  "cases_sha256": "432e55ca579b74766e9097428fe513bd5a8c96496892dec1b023365ba1a4ed3c",
+  "doc": "docs/flip-protocol-v7-exploratory.md",
+  "dryrun": {
+    "at": "2026-11-19 09:13:51 UTC",
+    "guard": {
+      "all_paid_at_outputs_x1_5_usd": 2.1146,
+      "cap_usd": 4.56,
+      "fits": true,
+      "largest_round_upper_usd": 1.6133,
+      "max_requests_per_round": 1000,
+      "order": [
+        "R",
+        "X"
+      ],
+      "rule": "all requests paid at the likely price with outputs x1.5, plus the largest possible round bound, at or under the cap"
+    },
+    "likely_usd": 1.5332,
+    "requests": 5616,
+    "upper_usd": 8.8379
+  },
+  "finalized_at": "2026-11-19 09:13 UTC",
+  "frame_sha256": "bed6b1d00288354439f4a0459dc7d512cfc83245b369a141e9e4f1a88f6eb69f",
+  "frozen_at": "2026-11-19 09:13 UTC",
+  "price_gate_usd": 2.0,
+  "r_notes_sha256": "d864ab8dc1ac0150163706be181a46fa23599f5696c4641ba4c2f0ad850fd479",
+  "reused": {
+    "decider.action_schema": "b5c809762c595781e481572d7b6ead5fb9ef9a4afa1e2afcae093ca81a69efbb",
+    "decider.v1": "f0828f379ef244779cec7c9e8fd2260b23b53f9da81cfd35bf0a8c4dd3673f04",
+    "decider.v1.inserted": "74be01664a51887455a9445a08edbf8eae8c1f75b9a34db9d924a1b9d9b5a8d0",
+    "decider.v2": "afa9c09a90ae59bfc1f92e858bc5d9d34125298c17c0bd74c1bfa70c9b9d718b",
+    "event_templates": "38f5302ef4a810a19679a838828c909cc0e1c753fd2676f6df5776c5af3ac919",
+    "file:render.py": "46567cebd52980297247f58f1c46ad315eac94ff3736427fe092bcb85dc6dfaf",
+    "note.prompt_p_residue": "d06b8aafacbcc2e16280c4e6ebd5069a2e5ec8baeb8e23a2e0829d435a08b6cd",
+    "note.schema": "23b194ce2295f649c6a2a17cdaedf6bccbc5ae05eda412d1d6a65c1af2ae88d0",
+    "x5.x1.prompt": "0f922c5080f2b2e969d5e2decc2c0d2378c90c704ba43dd0e05facc4703cad16",
+    "x5.x1.reader_paragraph": "f631e18161dac71f3a47291fa706403c4252af7aa024ade524271c3f18d3e5e7",
+    "x5.x1.schema": "23b194ce2295f649c6a2a17cdaedf6bccbc5ae05eda412d1d6a65c1af2ae88d0"
+  },
+  "rules": {
+    "x7.analysis": "aea43ecf5a65a167ed53f64dd71fb6818336c52f89fa2d0bbc378ee7a4260156",
+    "x7.r1.diff": "9830da0357050e179f8834755532945f940a6047569346584adac30c38de0db7",
+    "x7.r1.prompt": "fe975e9e8528a9e6e0709b473e6a2fbc8ac477aaabad625a88fa3f7f2fd478fb",
+    "x7.r1.system": "9271ff9efd58a1ffb0cfea1cb48097b5cc405bfaac92c321d00d55521c239517",
+    "x7.r2.rule": "9365caf91075aa1ca7a6e23485409d2ddc584c568b55932e6287ec23cb89a86d",
+    "x7.r3.rule": "b8f0ac63cd97e64220c8c7d4c3b06c24b17da73ac9e48fd278db5085a513cb63",
+    "x7.rounds.rule": "44fc14a2fc1886e1076cc3f0f8b4dcdd67e37817b19fcdeb9ce5d11fbc92a178",
+    "x7.sets.rule": "ef7a42b513c1e178bbe54a5bcedade58222245b0e6e0c15b84854c300d97238b",
+    "x7.x1.schema": "23b194ce2295f649c6a2a17cdaedf6bccbc5ae05eda412d1d6a65c1af2ae88d0",
+    "x7.x1.split": "567830ee36c6a12f4774dbe45d98a588cfb12d8561eaa672295a2a0134ff4c11",
+    "x7.x1p.prompt": "e992f7f2a3c0ef6b624061479ee2d87688c0d93b0fbd20fe6d7dc05368329c8b",
+    "x7.x1r.prompt": "7691cfea86bad16e3511150c5cdb972de51d2b2a9ebfa9cdd79b926c78c2d76d"
+  },
+  "run_cap_usd": 4.56,
+  "schema": "lens.flip.exploratory/1",
+  "status": "FINAL",
+  "track_cap_usd": 5.0,
+  "v5_refs_sha256": "bc10945c852bbadf04b9367bb63d67bde2fa62e49b07e36bf21594ddf70b2c64",
+  "v6_actual_usd": 0.432525,
+  "version": "7-exploratory",
+  "wrong_frame_sha256": "0301a0f4a5535c1566a951f98952606ffb68b954f1b36718d56bb9f6999bdce9"
+}

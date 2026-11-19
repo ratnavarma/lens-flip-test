@@ -830,6 +830,144 @@
    ]
   }
  },
+ "Table 14": {
+  "columns": [
+   "Notes changed",
+   "Flip rate",
+   "Minus v3",
+   "Deferral flips",
+   "Minus v3"
+  ],
+  "rows": {
+   "v3 notes, v1 reader prompt": [
+    "-",
+    "29.0 [24.8, 33.2]",
+    "-",
+    "21.4 [17.6, 25.4]",
+    "-"
+   ],
+   "R1, reader told the text is a note": [
+    "490",
+    "48.4 [42.4, 55.0]",
+    "19.4 [14.7, 24.6]",
+    "44.1 [38.0, 50.2]",
+    "22.7 [18.1, 27.3]"
+   ],
+   "R2, hedging sentences removed": [
+    "195",
+    "28.6 [24.3, 32.8]",
+    "-0.4 [-3.2, 2.4]",
+    "19.6 [16.0, 23.7]",
+    "-1.8 [-4.3, 0.6]"
+   ],
+   "R3, trailing fragment removed": [
+    "331",
+    "26.9 [22.8, 30.9]",
+    "-2.0 [-4.7, 0.6]",
+    "18.0 [14.6, 21.5]",
+    "-3.5 [-5.8, -1.0]"
+   ],
+   "Five repeats of the v3 note (C3)": [
+    "-",
+    "28.4 [24.4, 32.6]",
+    "-0.5 [-2.6, 1.6]",
+    "20.5 [16.8, 24.3]",
+    "-0.9 [-2.7, 0.6]"
+   ]
+  }
+ },
+ "Table 15": {
+  "columns": [
+   "Flip rate",
+   "Minus v3",
+   "B right where A was wrong",
+   "Reader accuracy, all handoffs"
+  ],
+  "rows": {
+   "v3 note prompt": [
+    "29.0 [24.8, 33.2]",
+    "-",
+    "15.2 [12.7, 17.6]",
+    "38.8 [35.7, 42.0]"
+   ],
+   "Policy only (X1p)": [
+    "20.6 [17.0, 24.4]",
+    "-8.4 [-13.1, -4.0]",
+    "-",
+    "-"
+   ],
+   "Reader description only (X1r)": [
+    "24.3 [20.6, 28.2]",
+    "-4.7 [-8.3, -0.8]",
+    "-",
+    "-"
+   ],
+   "Both (X1)": [
+    "14.5 [11.6, 17.5]",
+    "-14.5 [-19.1, -10.0]",
+    "20.3 [17.3, 23.3]",
+    "47.8 [45.0, 50.6]"
+   ],
+   "X1 minus v3": [
+    "-",
+    "-",
+    "5.1 [2.0, 8.5]",
+    "9.1 [6.4, 11.6]"
+   ]
+  }
+ },
+ "Tables 14 and 15 text": {
+  "columns": [
+   "Value"
+  ],
+  "rows": {
+   "v3 flip rate, notes cut by the cap": [
+    "28.7 (100 of 349)"
+   ],
+   "v3 flip rate, notes not cut": [
+    "29.8 (42 of 141)"
+   ],
+   "Cut minus not cut": [
+    "-1.1 [-9.7, 7.2]"
+   ],
+   "R1 commit flips minus v3": [
+    "-3.1 [-5.6, -0.6]"
+   ],
+   "R2, notes changed": [
+    "195"
+   ],
+   "R3, notes changed": [
+    "331"
+   ],
+   "X1p minus X1": [
+    "6.1 [2.5, 9.8]"
+   ],
+   "X1r minus X1": [
+    "9.8 [5.6, 14.1]"
+   ],
+   "X1p minus X1r": [
+    "-3.7 [-7.7, 0.6]"
+   ],
+   "Reader repeats A's wrong action, v3 notes": [
+    "76.1"
+   ],
+   "Reader repeats A's wrong action, X1 notes": [
+    "71.6"
+   ],
+   "A-wrong handoffs": [
+    "670"
+   ],
+   "Gated handoffs": [
+    "1,160"
+   ],
+   "v7 spend in USD": [
+    "1.47"
+   ],
+   "v7 requests": [
+    "5,616"
+   ]
+  }
+ },
  "Figure 2": {
   "columns": [
    "Value"

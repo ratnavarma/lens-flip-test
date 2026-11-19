@@ -12,6 +12,7 @@ results/*
 !results/exploratory-v4/
 !results/exploratory-v5/
 !results/exploratory-v6/
+!results/exploratory-v7/
 !results/validity-haiku-v4/
 !results/headline-300/
 !results/paper_expected.json

@@ -1,4 +1,4 @@
-"""Rebuild every table of the paper (1 to 13), the Figure 2 numbers and the paper facts from the text-free metric files.
+"""Rebuild every table of the paper (1 to 15), the Figure 2 numbers and the paper facts from the text-free metric files.
 
     uv run python scripts/rebuild_paper.py                 # print every table and the paper facts
     uv run python scripts/rebuild_paper.py --check         # compare each cell with results/paper_expected.json
@@ -13,6 +13,8 @@ Inputs (no note, view, unit, reason or prompt text in any of them):
     results/exploratory-v5/c1_control_metrics_v5.jsonl         Tables 8, 9
     results/exploratory-v5/judge_calibration_metrics_v5.jsonl  Table 10, first column
     results/exploratory-v6/handoff_metrics_v6.jsonl            Table 13 and the v6 numbers in the text
+    results/exploratory-v7/handoff_metrics_v7.jsonl            Tables 14 and 15 and the v7 numbers in the text
+    results/exploratory-v7/spend.json                          the v7 spend and request count in the text
     results/headline-300-v3/cases.jsonl                        the generated cases (paper facts on histories)
 
 Bootstrap: the frozen one. Seed 11, 1,000 resamples of the 300 cases, paired by case: every row of a
@@ -195,6 +197,8 @@ class Data:
         self.c1 = _jsonl(res / "exploratory-v5" / "c1_control_metrics_v5.jsonl")
         self.cal = _jsonl(res / "exploratory-v5" / "judge_calibration_metrics_v5.jsonl")
         self.v6 = _jsonl(res / "exploratory-v6" / "handoff_metrics_v6.jsonl")
+        self.v7 = _jsonl(res / "exploratory-v7" / "handoff_metrics_v7.jsonl")
+        self.v7_spend = json.loads((res / "exploratory-v7" / "spend.json").read_text(encoding="utf-8"))
         self.cases_path = res / "headline-300-v3" / "cases.jsonl"
         self.case_ids = list(dict.fromkeys(r["case_id"] for r in self.s1))   # case order of the frozen run
         self.M = Metrics(self.case_ids)
@@ -550,6 +554,80 @@ def table13(D: Data) -> dict:
     return {"Table 13": t13, "Table 13 text": text}
 
 
+def _v7(r: dict) -> dict:
+    """Outcomes of protocol v7 for one gated handoff. A flip: B's action differs from A's action. A deferral
+    flip: a flip to REQUEST_INFO. A commit flip: a flip to one of the four other actions. On an A-wrong
+    handoff, rescue: B takes the right action; repeat: B takes A's wrong action."""
+    commits = ("EXPLAIN", "OPEN_REVIEW", "CHECK_DEVICE", "APPLY_CREDIT")
+    d = dict(r)
+    if r["set"] == "eligible":
+        for name in ("v3", "x1", "r1", "r2", "r3", "x1p", "x1r"):
+            a = r[f"{name}_a_B"]
+            fl = a is not None and a != r["a_A"]
+            d.update({f"{name}_flip": int(fl), f"{name}_defer": int(fl and a == DEFER),
+                      f"{name}_commit": int(fl and a in commits)})
+        d["correct_v3"], d["correct_x1"] = int(r["v3_a_B"] == r["a_star"]), int(r["x1_a_B"] == r["a_star"])
+    else:
+        for name in ("wv3", "wx1"):
+            a = r[f"{name}_a_B"]
+            d.update({f"{name}_rescue": int(a == r["a_star"]), f"{name}_repeat": int(a == r["a_A"])})
+        d["correct_v3"], d["correct_x1"] = d["wv3_rescue"], d["wx1_rescue"]
+    return d
+
+
+def tables_v7(D: Data) -> dict:
+    M = D.M
+    rows = [_v7(r) for r in D.v7]
+    assert all(D.case_ids[r["case_index"]] == r["case_id"] for r in rows), "v7 case order is not the frozen one"
+    el = [r for r in rows if r["set"] == "eligible"]
+    wr = [r for r in rows if r["set"] == "a_wrong"]
+    g = lambda key: (lambda r: r[key])
+    c3n = g("c3_n")
+
+    def arm(name, n_changed):
+        return [n_changed, P(M.ratio(el, g(f"{name}_flip"))), P(M.diff(el, g(f"{name}_flip"), g("v3_flip"))),
+                P(M.ratio(el, g(f"{name}_defer"))), P(M.diff(el, g(f"{name}_defer"), g("v3_defer")))]
+    t14 = {
+        "v3 notes, v1 reader prompt": [DASH, P(M.ratio(el, g("v3_flip"))), DASH, P(M.ratio(el, g("v3_defer"))), DASH],
+        "R1, reader told the text is a note": arm("r1", N(len(el))),
+        "R2, hedging sentences removed": arm("r2", N(sum(bool(r["r2_changed"]) for r in el))),
+        "R3, trailing fragment removed": arm("r3", N(sum(bool(r["r3_changed"]) for r in el))),
+        "Five repeats of the v3 note (C3)": [
+            DASH, P(M.ratio(el, g("c3_flip"), c3n)), P(M.ratio_diff(el, g("c3_flip"), c3n, g("v3_flip"), one)),
+            P(M.ratio(el, g("c3_defer"), c3n)), P(M.ratio_diff(el, g("c3_defer"), c3n, g("v3_defer"), one))]}
+    xrow = lambda name: [P(M.ratio(el, g(f"{name}_flip"))), P(M.diff(el, g(f"{name}_flip"), g("v3_flip"))), DASH, DASH]
+    t15 = {
+        "v3 note prompt": [P(M.ratio(el, g("v3_flip"))), DASH, P(M.ratio(wr, g("wv3_rescue"))), P(M.ratio(rows, g("correct_v3")))],
+        "Policy only (X1p)": xrow("x1p"),
+        "Reader description only (X1r)": xrow("x1r"),
+        "Both (X1)": [P(M.ratio(el, g("x1_flip"))), P(M.diff(el, g("x1_flip"), g("v3_flip"))),
+                      P(M.ratio(wr, g("wx1_rescue"))), P(M.ratio(rows, g("correct_x1")))],
+        "X1 minus v3": [DASH, DASH, P(M.diff(wr, g("wx1_rescue"), g("wv3_rescue"))),
+                        P(M.diff(rows, g("correct_x1"), g("correct_v3")))]}
+    cut, unc = [r for r in el if r["cut"]], [r for r in el if not r["cut"]]
+    grp = lambda rs: Cell("{:.1f} ({:,d} of {:,d})", 100 * sum(r["v3_flip"] for r in rs) / len(rs),
+                          sum(r["v3_flip"] for r in rs), len(rs))
+    ic, iu = (lambda r: int(bool(r["cut"]))), (lambda r: int(not r["cut"]))
+    requests = sum(v["requests"] for a in D.v7_spend["arms"].values() for v in a["by_stage"].values())
+    text = {
+        "v3 flip rate, notes cut by the cap": [grp(cut)],
+        "v3 flip rate, notes not cut": [grp(unc)],
+        "Cut minus not cut": [P(M.ratio_diff(el, lambda r: r["v3_flip"] * ic(r), ic, lambda r: r["v3_flip"] * iu(r), iu))],
+        "R1 commit flips minus v3": [P(M.diff(el, g("r1_commit"), g("v3_commit")))],
+        "R2, notes changed": [N(sum(bool(r["r2_changed"]) for r in el))],
+        "R3, notes changed": [N(sum(bool(r["r3_changed"]) for r in el))],
+        "X1p minus X1": [P(M.diff(el, g("x1p_flip"), g("x1_flip")))],
+        "X1r minus X1": [P(M.diff(el, g("x1r_flip"), g("x1_flip")))],
+        "X1p minus X1r": [P(M.diff(el, g("x1p_flip"), g("x1r_flip")))],
+        "Reader repeats A's wrong action, v3 notes": [P1(M.ratio(wr, g("wv3_repeat"))["v"])],
+        "Reader repeats A's wrong action, X1 notes": [P1(M.ratio(wr, g("wx1_repeat"))["v"])],
+        "A-wrong handoffs": [N(len(wr))],
+        "Gated handoffs": [N(len(rows))],
+        "v7 spend in USD": [Cell("{:.2f}", D.v7_spend["total_usd"])],
+        "v7 requests": [N(requests)]}
+    return {"Table 14": t14, "Table 15": t15, "Tables 14 and 15 text": text}
+
+
 def figure2(D: Data) -> dict:
     M, v3 = D.M, D.v3
     ex, st, sn = D.arm(D.v4, "extractive"), D.arm(D.v4, "stripped"), D.arm(D.v4, "sonnet")
@@ -577,7 +655,7 @@ def figure2(D: Data) -> dict:
 
 
 def rebuild(D: Data) -> dict:
-    return table1(D) | tables_v3(D) | tables_v4(D) | tables_v5(D) | table13(D) | figure2(D)
+    return table1(D) | tables_v3(D) | tables_v4(D) | tables_v5(D) | table13(D) | tables_v7(D) | figure2(D)
 
 
 # ---------------------------------------------------------------------------

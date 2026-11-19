@@ -1,0 +1,2640 @@
+{
+ "bootstrap": {
+  "reps": 1000,
+  "seed": 11,
+  "unit": "case (paired; every handoff of a resampled case)"
+ },
+ "denominators": {
+  "a_wrong": 670,
+  "a_wrong_by_system": {
+   "rag-bm25": 127,
+   "rag-embed": 146,
+   "recent": 192,
+   "summary": 205
+  },
+  "cases": 300,
+  "eligible": 490,
+  "eligible_by_system": {
+   "rag-bm25": 163,
+   "rag-embed": 144,
+   "recent": 98,
+   "summary": 85
+  },
+  "gated_handoffs": 1160
+ },
+ "exploratory": true,
+ "metrics_file": {
+  "name": "handoff_metrics_v7.jsonl",
+  "rows": 1160,
+  "sha256": "15c470deee2926637b6ec456712c4da1b1d1b603cfd366d27e37a996de4d134c",
+  "sufficient": "summarize(rows) gives every number of study_R and study_X",
+  "text_free": true
+ },
+ "multiple_comparisons": "no correction",
+ "note": "Exploratory, outside the frozen v3 to v6 protocols. No result here changes an earlier number.",
+ "protocol": {
+  "arm_config_sha256": {
+   "R": "52d4041d5d5fcd4107bdaa4c5ba812674b6061366cbd8b6bfb56cc39c961137a",
+   "X": "cd64183a94d85a8fb99ab593acfded92576ad8c464cd21550c0c42a99c5fef1c"
+  },
+  "doc": "docs/flip-protocol-v7-exploratory.md",
+  "files_sha256": {
+   "calibration_sha256": "7dfa41aa22ab0772d3fc9e8b428f388ffa85f7e18686f9c958f14ec1f0727225",
+   "cases_sha256": "432e55ca579b74766e9097428fe513bd5a8c96496892dec1b023365ba1a4ed3c",
+   "frame_sha256": "bed6b1d00288354439f4a0459dc7d512cfc83245b369a141e9e4f1a88f6eb69f",
+   "r_notes_sha256": "d864ab8dc1ac0150163706be181a46fa23599f5696c4641ba4c2f0ad850fd479",
+   "v5_refs_sha256": "bc10945c852bbadf04b9367bb63d67bde2fa62e49b07e36bf21594ddf70b2c64",
+   "wrong_frame_sha256": "0301a0f4a5535c1566a951f98952606ffb68b954f1b36718d56bb9f6999bdce9"
+  },
+  "finalized_at": "2026-11-19 09:13 UTC",
+  "frozen_at": "2026-11-19 09:13 UTC",
+  "reused_sha256": {
+   "decider.action_schema": "b5c809762c595781e481572d7b6ead5fb9ef9a4afa1e2afcae093ca81a69efbb",
+   "decider.v1": "f0828f379ef244779cec7c9e8fd2260b23b53f9da81cfd35bf0a8c4dd3673f04",
+   "decider.v1.inserted": "74be01664a51887455a9445a08edbf8eae8c1f75b9a34db9d924a1b9d9b5a8d0",
+   "decider.v2": "afa9c09a90ae59bfc1f92e858bc5d9d34125298c17c0bd74c1bfa70c9b9d718b",
+   "event_templates": "38f5302ef4a810a19679a838828c909cc0e1c753fd2676f6df5776c5af3ac919",
+   "file:render.py": "46567cebd52980297247f58f1c46ad315eac94ff3736427fe092bcb85dc6dfaf",
+   "note.prompt_p_residue": "d06b8aafacbcc2e16280c4e6ebd5069a2e5ec8baeb8e23a2e0829d435a08b6cd",
+   "note.schema": "23b194ce2295f649c6a2a17cdaedf6bccbc5ae05eda412d1d6a65c1af2ae88d0",
+   "x5.x1.prompt": "0f922c5080f2b2e969d5e2decc2c0d2378c90c704ba43dd0e05facc4703cad16",
+   "x5.x1.reader_paragraph": "f631e18161dac71f3a47291fa706403c4252af7aa024ade524271c3f18d3e5e7",
+   "x5.x1.schema": "23b194ce2295f649c6a2a17cdaedf6bccbc5ae05eda412d1d6a65c1af2ae88d0"
+  },
+  "rules_sha256": {
+   "x7.analysis": "aea43ecf5a65a167ed53f64dd71fb6818336c52f89fa2d0bbc378ee7a4260156",
+   "x7.r1.diff": "9830da0357050e179f8834755532945f940a6047569346584adac30c38de0db7",
+   "x7.r1.prompt": "fe975e9e8528a9e6e0709b473e6a2fbc8ac477aaabad625a88fa3f7f2fd478fb",
+   "x7.r1.system": "9271ff9efd58a1ffb0cfea1cb48097b5cc405bfaac92c321d00d55521c239517",
+   "x7.r2.rule": "9365caf91075aa1ca7a6e23485409d2ddc584c568b55932e6287ec23cb89a86d",
+   "x7.r3.rule": "b8f0ac63cd97e64220c8c7d4c3b06c24b17da73ac9e48fd278db5085a513cb63",
+   "x7.rounds.rule": "44fc14a2fc1886e1076cc3f0f8b4dcdd67e37817b19fcdeb9ce5d11fbc92a178",
+   "x7.sets.rule": "ef7a42b513c1e178bbe54a5bcedade58222245b0e6e0c15b84854c300d97238b",
+   "x7.x1.schema": "23b194ce2295f649c6a2a17cdaedf6bccbc5ae05eda412d1d6a65c1af2ae88d0",
+   "x7.x1.split": "567830ee36c6a12f4774dbe45d98a588cfb12d8561eaa672295a2a0134ff4c11",
+   "x7.x1p.prompt": "e992f7f2a3c0ef6b624061479ee2d87688c0d93b0fbd20fe6d7dc05368329c8b",
+   "x7.x1r.prompt": "7691cfea86bad16e3511150c5cdb972de51d2b2a9ebfa9cdd79b926c78c2d76d"
+  },
+  "status": "FINAL"
+ },
+ "schema": "lens.flip.exploratory/1",
+ "spend": {
+  "by_arm": {
+   "R1": {
+    "actual_usd": 0.108964,
+    "by_stage": {
+     "r1_B": {
+      "input_tokens": 426672,
+      "output_tokens": 350523,
+      "requests": 490,
+      "usd": 0.108964
+     }
+    },
+    "requests": 490
+   },
+   "R2": {
+    "actual_usd": 0.032045,
+    "by_stage": {
+     "r2_B": {
+      "input_tokens": 157996,
+      "output_tokens": 96579,
+      "requests": 195,
+      "usd": 0.032045
+     }
+    },
+    "requests": 195
+   },
+   "R3": {
+    "actual_usd": 0.048037,
+    "by_stage": {
+     "r3_B": {
+      "input_tokens": 242471,
+      "output_tokens": 143653,
+      "requests": 291,
+      "usd": 0.048037
+     }
+    },
+    "requests": 291
+   },
+   "X1p": {
+    "actual_usd": 0.281813,
+    "by_stage": {
+     "x1p_A": {
+      "input_tokens": 851346,
+      "output_tokens": 660097,
+      "requests": 490,
+      "usd": 0.207592
+     },
+     "x1p_B": {
+      "input_tokens": 415989,
+      "output_tokens": 213685,
+      "requests": 490,
+      "usd": 0.074221
+     }
+    },
+    "requests": 980
+   },
+   "X1r": {
+    "actual_usd": 0.272107,
+    "by_stage": {
+     "x1r_A": {
+      "input_tokens": 752366,
+      "output_tokens": 591412,
+      "requests": 490,
+      "usd": 0.185471
+     },
+     "x1r_B": {
+      "input_tokens": 416395,
+      "output_tokens": 263266,
+      "requests": 490,
+      "usd": 0.086636
+     }
+    },
+    "requests": 980
+   },
+   "XW": {
+    "actual_usd": 0.723748,
+    "by_stage": {
+     "xw_v3_A": {
+      "input_tokens": 996382,
+      "output_tokens": 770547,
+      "requests": 670,
+      "usd": 0.242456
+     },
+     "xw_v3_B": {
+      "input_tokens": 567442,
+      "output_tokens": 315526,
+      "requests": 670,
+      "usd": 0.107254
+     },
+     "xw_x1_A": {
+      "input_tokens": 1214132,
+      "output_tokens": 856019,
+      "requests": 670,
+      "usd": 0.274711
+     },
+     "xw_x1_B": {
+      "input_tokens": 566294,
+      "output_tokens": 284050,
+      "requests": 670,
+      "usd": 0.099327
+     }
+    },
+    "requests": 2680
+   }
+  },
+  "by_run_dir": {
+   "R": 0.189046,
+   "X": 1.277668
+  },
+  "cap_usd": 4.56,
+  "dryrun_likely_usd": 1.5332,
+  "remaining_usd": 3.093286,
+  "rounds": {
+   "R": 1,
+   "X": 5
+  },
+  "total_usd": 1.466714
+ },
+ "study_R": {
+  "R0": {
+   "all": {
+    "commit": {
+     "ci95": [
+      0.051123,
+      0.097718
+     ],
+     "k": 36,
+     "n": 490,
+     "value": 0.07346938775510205
+    },
+    "defer": {
+     "ci95": [
+      0.176014,
+      0.254318
+     ],
+     "k": 105,
+     "n": 490,
+     "value": 0.21428571428571427
+    },
+    "flip": {
+     "ci95": [
+      0.248031,
+      0.331933
+     ],
+     "k": 142,
+     "n": 490,
+     "value": 0.2897959183673469
+    }
+   },
+   "by_cut": {
+    "commit": {
+     "cut": {
+      "ci95": [
+       0.043732,
+       0.096419
+      ],
+      "k": 24,
+      "n": 349,
+      "value": 0.06876790830945559
+     },
+     "cut_minus_not_cut": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.076069,
+       0.035749
+      ],
+      "diff": -0.016338474669267813,
+      "sums": {
+       "ad": 349.0,
+       "an": 24.0,
+       "bd": 141.0,
+       "bn": 12.0
+      }
+     },
+     "not_cut": {
+      "ci95": [
+       0.039434,
+       0.137706
+      ],
+      "k": 12,
+      "n": 141,
+      "value": 0.0851063829787234
+     }
+    },
+    "defer": {
+     "cut": {
+      "ci95": [
+       0.170935,
+       0.261906
+      ],
+      "k": 75,
+      "n": 349,
+      "value": 0.2148997134670487
+     },
+     "cut_minus_not_cut": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.079912,
+       0.077559
+      ],
+      "diff": 0.002133756020240185,
+      "sums": {
+       "ad": 349.0,
+       "an": 75.0,
+       "bd": 141.0,
+       "bn": 30.0
+      }
+     },
+     "not_cut": {
+      "ci95": [
+       0.147861,
+       0.285714
+      ],
+      "k": 30,
+      "n": 141,
+      "value": 0.2127659574468085
+     }
+    },
+    "flip": {
+     "cut": {
+      "ci95": [
+       0.237957,
+       0.331477
+      ],
+      "k": 100,
+      "n": 349,
+      "value": 0.28653295128939826
+     },
+     "cut_minus_not_cut": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.096781,
+       0.071792
+      ],
+      "diff": -0.011339389136133637,
+      "sums": {
+       "ad": 349.0,
+       "an": 100.0,
+       "bd": 141.0,
+       "bn": 42.0
+      }
+     },
+     "not_cut": {
+      "ci95": [
+       0.226934,
+       0.375941
+      ],
+      "k": 42,
+      "n": 141,
+      "value": 0.2978723404255319
+     }
+    }
+   },
+   "by_mid": {
+    "commit": {
+     "ends_a_sentence": {
+      "ci95": [
+       0.038685,
+       0.13195
+      ],
+      "k": 13,
+      "n": 159,
+      "value": 0.08176100628930817
+     },
+     "mid_sentence": {
+      "ci95": [
+       0.043475,
+       0.097646
+      ],
+      "k": 23,
+      "n": 331,
+      "value": 0.06948640483383686
+     },
+     "mid_sentence_minus_ends_a_sentence": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.069227,
+       0.036706
+      ],
+      "diff": -0.01227460145547131,
+      "sums": {
+       "ad": 331.0,
+       "an": 23.0,
+       "bd": 159.0,
+       "bn": 13.0
+      }
+     }
+    },
+    "defer": {
+     "ends_a_sentence": {
+      "ci95": [
+       0.165536,
+       0.302013
+      ],
+      "k": 37,
+      "n": 159,
+      "value": 0.23270440251572327
+     },
+     "mid_sentence": {
+      "ci95": [
+       0.160441,
+       0.252843
+      ],
+      "k": 68,
+      "n": 331,
+      "value": 0.2054380664652568
+     },
+     "mid_sentence_minus_ends_a_sentence": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.106678,
+       0.048874
+      ],
+      "diff": -0.027266336050466466,
+      "sums": {
+       "ad": 331.0,
+       "an": 68.0,
+       "bd": 159.0,
+       "bn": 37.0
+      }
+     }
+    },
+    "flip": {
+     "ends_a_sentence": {
+      "ci95": [
+       0.243737,
+       0.387338
+      ],
+      "k": 50,
+      "n": 159,
+      "value": 0.31446540880503143
+     },
+     "mid_sentence": {
+      "ci95": [
+       0.23005,
+       0.325004
+      ],
+      "k": 92,
+      "n": 331,
+      "value": 0.27794561933534745
+     },
+     "mid_sentence_minus_ends_a_sentence": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.116806,
+       0.045446
+      ],
+      "diff": -0.03651978946968398,
+      "sums": {
+       "ad": 331.0,
+       "an": 92.0,
+       "bd": 159.0,
+       "bn": 50.0
+      }
+     }
+    }
+   },
+   "n": 490,
+   "n_cut": 349,
+   "n_cut_and_mid_sentence": 331,
+   "n_mid_sentence": 331
+  },
+  "R1_note_framed": {
+   "all": {
+    "commit_minus_v3": {
+     "bounds": "below zero",
+     "ci95": [
+      -0.056278,
+      -0.006142
+     ],
+     "diff": -0.030612244897959183,
+     "k_a": 21,
+     "k_b": 36,
+     "n": 490
+    },
+    "commit_rate": {
+     "ci95": [
+      0.026693,
+      0.06151
+     ],
+     "k": 21,
+     "n": 490,
+     "value": 0.04285714285714286
+    },
+    "defer_minus_v3": {
+     "bounds": "above zero",
+     "ci95": [
+      0.180723,
+      0.272537
+     ],
+     "diff": 0.22653061224489796,
+     "k_a": 216,
+     "k_b": 105,
+     "n": 490
+    },
+    "defer_rate": {
+     "ci95": [
+      0.379577,
+      0.502063
+     ],
+     "k": 216,
+     "n": 490,
+     "value": 0.44081632653061226
+    },
+    "flip_minus_v3": {
+     "bounds": "above zero",
+     "ci95": [
+      0.147047,
+      0.246196
+     ],
+     "diff": 0.19387755102040816,
+     "k_a": 237,
+     "k_b": 142,
+     "n": 490
+    },
+    "flip_rate": {
+     "ci95": [
+      0.424476,
+      0.549563
+     ],
+     "k": 237,
+     "n": 490,
+     "value": 0.48367346938775513
+    },
+    "n": 490,
+    "v3_commit_rate": {
+     "ci95": [
+      0.051123,
+      0.097718
+     ],
+     "k": 36,
+     "n": 490,
+     "value": 0.07346938775510205
+    },
+    "v3_defer_rate": {
+     "ci95": [
+      0.176014,
+      0.254318
+     ],
+     "k": 105,
+     "n": 490,
+     "value": 0.21428571428571427
+    },
+    "v3_flip_rate": {
+     "ci95": [
+      0.248031,
+      0.331933
+     ],
+     "k": 142,
+     "n": 490,
+     "value": 0.2897959183673469
+    }
+   },
+   "by_cut": {
+    "cut": {
+     "commit_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.051286,
+       0.006026
+      ],
+      "diff": -0.022922636103151862,
+      "k_a": 16,
+      "k_b": 24,
+      "n": 349
+     },
+     "commit_rate": {
+      "ci95": [
+       0.026385,
+       0.069369
+      ],
+      "k": 16,
+      "n": 349,
+      "value": 0.045845272206303724
+     },
+     "defer_minus_v3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.166656,
+       0.275689
+      ],
+      "diff": 0.22063037249283668,
+      "k_a": 152,
+      "k_b": 75,
+      "n": 349
+     },
+     "defer_rate": {
+      "ci95": [
+       0.368894,
+       0.504158
+      ],
+      "k": 152,
+      "n": 349,
+      "value": 0.4355300859598854
+     },
+     "flip_minus_v3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.141236,
+       0.25215
+      ],
+      "diff": 0.19484240687679083,
+      "k_a": 168,
+      "k_b": 100,
+      "n": 349
+     },
+     "flip_rate": {
+      "ci95": [
+       0.414846,
+       0.552203
+      ],
+      "k": 168,
+      "n": 349,
+      "value": 0.4813753581661891
+     },
+     "n": 349,
+     "v3_commit_rate": {
+      "ci95": [
+       0.043732,
+       0.096419
+      ],
+      "k": 24,
+      "n": 349,
+      "value": 0.06876790830945559
+     },
+     "v3_defer_rate": {
+      "ci95": [
+       0.170935,
+       0.261906
+      ],
+      "k": 75,
+      "n": 349,
+      "value": 0.2148997134670487
+     },
+     "v3_flip_rate": {
+      "ci95": [
+       0.237957,
+       0.331477
+      ],
+      "k": 100,
+      "n": 349,
+      "value": 0.28653295128939826
+     }
+    },
+    "not_cut": {
+     "commit_minus_v3": {
+      "bounds": "below zero",
+      "ci95": [
+       -0.096031,
+       -0.00704
+      ],
+      "diff": -0.04964539007092199,
+      "k_a": 5,
+      "k_b": 12,
+      "n": 141
+     },
+     "commit_rate": {
+      "ci95": [
+       0.007407,
+       0.06757
+      ],
+      "k": 5,
+      "n": 141,
+      "value": 0.03546099290780142
+     },
+     "defer_minus_v3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.163112,
+       0.321187
+      ],
+      "diff": 0.24113475177304963,
+      "k_a": 64,
+      "k_b": 30,
+      "n": 141
+     },
+     "defer_rate": {
+      "ci95": [
+       0.36362,
+       0.553195
+      ],
+      "k": 64,
+      "n": 141,
+      "value": 0.45390070921985815
+     },
+     "flip_minus_v3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.115372,
+       0.271336
+      ],
+      "diff": 0.19148936170212766,
+      "k_a": 69,
+      "k_b": 42,
+      "n": 141
+     },
+     "flip_rate": {
+      "ci95": [
+       0.401459,
+       0.580651
+      ],
+      "k": 69,
+      "n": 141,
+      "value": 0.48936170212765956
+     },
+     "n": 141,
+     "v3_commit_rate": {
+      "ci95": [
+       0.039434,
+       0.137706
+      ],
+      "k": 12,
+      "n": 141,
+      "value": 0.0851063829787234
+     },
+     "v3_defer_rate": {
+      "ci95": [
+       0.147861,
+       0.285714
+      ],
+      "k": 30,
+      "n": 141,
+      "value": 0.2127659574468085
+     },
+     "v3_flip_rate": {
+      "ci95": [
+       0.226934,
+       0.375941
+      ],
+      "k": 42,
+      "n": 141,
+      "value": 0.2978723404255319
+     }
+    }
+   },
+   "changed_only": {
+    "commit_minus_v3": {
+     "bounds": "below zero",
+     "ci95": [
+      -0.056278,
+      -0.006142
+     ],
+     "diff": -0.030612244897959183,
+     "k_a": 21,
+     "k_b": 36,
+     "n": 490
+    },
+    "commit_rate": {
+     "ci95": [
+      0.026693,
+      0.06151
+     ],
+     "k": 21,
+     "n": 490,
+     "value": 0.04285714285714286
+    },
+    "defer_minus_v3": {
+     "bounds": "above zero",
+     "ci95": [
+      0.180723,
+      0.272537
+     ],
+     "diff": 0.22653061224489796,
+     "k_a": 216,
+     "k_b": 105,
+     "n": 490
+    },
+    "defer_rate": {
+     "ci95": [
+      0.379577,
+      0.502063
+     ],
+     "k": 216,
+     "n": 490,
+     "value": 0.44081632653061226
+    },
+    "flip_minus_v3": {
+     "bounds": "above zero",
+     "ci95": [
+      0.147047,
+      0.246196
+     ],
+     "diff": 0.19387755102040816,
+     "k_a": 237,
+     "k_b": 142,
+     "n": 490
+    },
+    "flip_rate": {
+     "ci95": [
+      0.424476,
+      0.549563
+     ],
+     "k": 237,
+     "n": 490,
+     "value": 0.48367346938775513
+    },
+    "n": 490,
+    "v3_commit_rate": {
+     "ci95": [
+      0.051123,
+      0.097718
+     ],
+     "k": 36,
+     "n": 490,
+     "value": 0.07346938775510205
+    },
+    "v3_defer_rate": {
+     "ci95": [
+      0.176014,
+      0.254318
+     ],
+     "k": 105,
+     "n": 490,
+     "value": 0.21428571428571427
+    },
+    "v3_flip_rate": {
+     "ci95": [
+      0.248031,
+      0.331933
+     ],
+     "k": 142,
+     "n": 490,
+     "value": 0.2897959183673469
+    }
+   },
+   "n_changed": 490,
+   "n_emptied_not_sent": 0,
+   "n_handoffs": 490,
+   "n_new_decisions": 490,
+   "n_v3_decision_kept": 0,
+   "n_with_decision": 490,
+   "noise_floor": {
+    "all": {
+     "commit_minus_c3": {
+      "bounds": "below zero",
+      "ci95": [
+       -0.059534,
+       -0.014636
+      ],
+      "diff": -0.03673469387755102,
+      "sums": {
+       "ad": 490.0,
+       "an": 21.0,
+       "bd": 2450.0,
+       "bn": 195.0
+      }
+     },
+     "defer_minus_c3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.191935,
+       0.278667
+      ],
+      "diff": 0.2359183673469388,
+      "sums": {
+       "ad": 490.0,
+       "an": 216.0,
+       "bd": 2450.0,
+       "bn": 502.0
+      }
+     },
+     "flip_minus_c3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.155043,
+       0.245765
+      ],
+      "diff": 0.19918367346938776,
+      "sums": {
+       "ad": 490.0,
+       "an": 237.0,
+       "bd": 2450.0,
+       "bn": 697.0
+      }
+     }
+    },
+    "answers_that_differ_from_v3_on_changed": {
+     "ci95": [
+      0.266387,
+      0.356139
+     ],
+     "k": 152.0,
+     "n": 490.0,
+     "value": 0.31020408163265306
+    },
+    "c3_repeats_that_differ_from_v3_same_handoffs": {
+     "ci95": [
+      0.073949,
+      0.114286
+     ],
+     "k": 228.0,
+     "n": 2450.0,
+     "value": 0.09306122448979592
+    },
+    "c3_reported": 0.093,
+    "changed_only": {
+     "commit_minus_c3": {
+      "bounds": "below zero",
+      "ci95": [
+       -0.059534,
+       -0.014636
+      ],
+      "diff": -0.03673469387755102,
+      "sums": {
+       "ad": 490.0,
+       "an": 21.0,
+       "bd": 2450.0,
+       "bn": 195.0
+      }
+     },
+     "defer_minus_c3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.191935,
+       0.278667
+      ],
+      "diff": 0.2359183673469388,
+      "sums": {
+       "ad": 490.0,
+       "an": 216.0,
+       "bd": 2450.0,
+       "bn": 502.0
+      }
+     },
+     "flip_minus_c3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.155043,
+       0.245765
+      ],
+      "diff": 0.19918367346938776,
+      "sums": {
+       "ad": 490.0,
+       "an": 237.0,
+       "bd": 2450.0,
+       "bn": 697.0
+      }
+     }
+    }
+   },
+   "rule": "an arm 'reduces deferral' only if the upper 95% bound of (arm deferral-flip rate minus v3 deferral-flip rate) on the handoffs with an arm decision is below zero; 'does not' otherwise",
+   "unparsed_replies": 0,
+   "verdict": "does not",
+   "verdict_changed_only_descriptive": "does not"
+  },
+  "R2_hedges_stripped": {
+   "all": {
+    "commit_minus_v3": {
+     "bounds": "includes zero",
+     "ci95": [
+      -0.004339,
+      0.036078
+     ],
+     "diff": 0.0163265306122449,
+     "k_a": 44,
+     "k_b": 36,
+     "n": 490
+    },
+    "commit_rate": {
+     "ci95": [
+      0.066115,
+      0.114339
+     ],
+     "k": 44,
+     "n": 490,
+     "value": 0.08979591836734693
+    },
+    "defer_minus_v3": {
+     "bounds": "includes zero",
+     "ci95": [
+      -0.04311,
+      0.006265
+     ],
+     "diff": -0.018367346938775512,
+     "k_a": 96,
+     "k_b": 105,
+     "n": 490
+    },
+    "defer_rate": {
+     "ci95": [
+      0.159524,
+      0.236864
+     ],
+     "k": 96,
+     "n": 490,
+     "value": 0.19591836734693877
+    },
+    "flip_minus_v3": {
+     "bounds": "includes zero",
+     "ci95": [
+      -0.032263,
+      0.024353
+     ],
+     "diff": -0.004081632653061225,
+     "k_a": 140,
+     "k_b": 142,
+     "n": 490
+    },
+    "flip_rate": {
+     "ci95": [
+      0.24296,
+      0.327734
+     ],
+     "k": 140,
+     "n": 490,
+     "value": 0.2857142857142857
+    },
+    "n": 490,
+    "v3_commit_rate": {
+     "ci95": [
+      0.051123,
+      0.097718
+     ],
+     "k": 36,
+     "n": 490,
+     "value": 0.07346938775510205
+    },
+    "v3_defer_rate": {
+     "ci95": [
+      0.176014,
+      0.254318
+     ],
+     "k": 105,
+     "n": 490,
+     "value": 0.21428571428571427
+    },
+    "v3_flip_rate": {
+     "ci95": [
+      0.248031,
+      0.331933
+     ],
+     "k": 142,
+     "n": 490,
+     "value": 0.2897959183673469
+    }
+   },
+   "by_cut": {
+    "cut": {
+     "commit_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.008277,
+       0.047101
+      ],
+      "diff": 0.02005730659025788,
+      "k_a": 31,
+      "k_b": 24,
+      "n": 349
+     },
+     "commit_rate": {
+      "ci95": [
+       0.060123,
+       0.118689
+      ],
+      "k": 31,
+      "n": 349,
+      "value": 0.08882521489971347
+     },
+     "defer_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.052929,
+       0.008357
+      ],
+      "diff": -0.022922636103151862,
+      "k_a": 67,
+      "k_b": 75,
+      "n": 349
+     },
+     "defer_rate": {
+      "ci95": [
+       0.151992,
+       0.235621
+      ],
+      "k": 67,
+      "n": 349,
+      "value": 0.19197707736389685
+     },
+     "flip_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.045823,
+       0.031716
+      ],
+      "diff": -0.0057306590257879654,
+      "k_a": 98,
+      "k_b": 100,
+      "n": 349
+     },
+     "flip_rate": {
+      "ci95": [
+       0.231883,
+       0.326087
+      ],
+      "k": 98,
+      "n": 349,
+      "value": 0.2808022922636103
+     },
+     "n": 349,
+     "v3_commit_rate": {
+      "ci95": [
+       0.043732,
+       0.096419
+      ],
+      "k": 24,
+      "n": 349,
+      "value": 0.06876790830945559
+     },
+     "v3_defer_rate": {
+      "ci95": [
+       0.170935,
+       0.261906
+      ],
+      "k": 75,
+      "n": 349,
+      "value": 0.2148997134670487
+     },
+     "v3_flip_rate": {
+      "ci95": [
+       0.237957,
+       0.331477
+      ],
+      "k": 100,
+      "n": 349,
+      "value": 0.28653295128939826
+     }
+    },
+    "not_cut": {
+     "commit_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.014706,
+       0.031454
+      ],
+      "diff": 0.0070921985815602835,
+      "k_a": 13,
+      "k_b": 12,
+      "n": 141
+     },
+     "commit_rate": {
+      "ci95": [
+       0.046145,
+       0.146211
+      ],
+      "k": 13,
+      "n": 141,
+      "value": 0.09219858156028368
+     },
+     "defer_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.046154,
+       0.032478
+      ],
+      "diff": -0.0070921985815602835,
+      "k_a": 29,
+      "k_b": 30,
+      "n": 141
+     },
+     "defer_rate": {
+      "ci95": [
+       0.141021,
+       0.275173
+      ],
+      "k": 29,
+      "n": 141,
+      "value": 0.20567375886524822
+     },
+     "flip_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.029417,
+       0.031847
+      ],
+      "diff": 0.0,
+      "k_a": 42,
+      "k_b": 42,
+      "n": 141
+     },
+     "flip_rate": {
+      "ci95": [
+       0.225157,
+       0.37594
+      ],
+      "k": 42,
+      "n": 141,
+      "value": 0.2978723404255319
+     },
+     "n": 141,
+     "v3_commit_rate": {
+      "ci95": [
+       0.039434,
+       0.137706
+      ],
+      "k": 12,
+      "n": 141,
+      "value": 0.0851063829787234
+     },
+     "v3_defer_rate": {
+      "ci95": [
+       0.147861,
+       0.285714
+      ],
+      "k": 30,
+      "n": 141,
+      "value": 0.2127659574468085
+     },
+     "v3_flip_rate": {
+      "ci95": [
+       0.226934,
+       0.375941
+      ],
+      "k": 42,
+      "n": 141,
+      "value": 0.2978723404255319
+     }
+    }
+   },
+   "changed_only": {
+    "commit_minus_v3": {
+     "bounds": "includes zero",
+     "ci95": [
+      -0.01065,
+      0.091747
+     ],
+     "diff": 0.041025641025641026,
+     "k_a": 25,
+     "k_b": 17,
+     "n": 195
+    },
+    "commit_rate": {
+     "ci95": [
+      0.082523,
+      0.174162
+     ],
+     "k": 25,
+     "n": 195,
+     "value": 0.1282051282051282
+    },
+    "defer_minus_v3": {
+     "bounds": "includes zero",
+     "ci95": [
+      -0.107692,
+      0.01765
+     ],
+     "diff": -0.046153846153846156,
+     "k_a": 40,
+     "k_b": 49,
+     "n": 195
+    },
+    "defer_rate": {
+     "ci95": [
+      0.144261,
+      0.271191
+     ],
+     "k": 40,
+     "n": 195,
+     "value": 0.20512820512820512
+    },
+    "flip_minus_v3": {
+     "bounds": "includes zero",
+     "ci95": [
+      -0.079622,
+      0.062837
+     ],
+     "diff": -0.010256410256410256,
+     "k_a": 65,
+     "k_b": 67,
+     "n": 195
+    },
+    "flip_rate": {
+     "ci95": [
+      0.264706,
+      0.396989
+     ],
+     "k": 65,
+     "n": 195,
+     "value": 0.3333333333333333
+    },
+    "n": 195,
+    "v3_commit_rate": {
+     "ci95": [
+      0.049364,
+      0.130955
+     ],
+     "k": 17,
+     "n": 195,
+     "value": 0.08717948717948718
+    },
+    "v3_defer_rate": {
+     "ci95": [
+      0.185181,
+      0.318843
+     ],
+     "k": 49,
+     "n": 195,
+     "value": 0.2512820512820513
+    },
+    "v3_flip_rate": {
+     "ci95": [
+      0.269662,
+      0.411175
+     ],
+     "k": 67,
+     "n": 195,
+     "value": 0.3435897435897436
+    }
+   },
+   "n_changed": 195,
+   "n_emptied_not_sent": 0,
+   "n_handoffs": 490,
+   "n_new_decisions": 195,
+   "n_v3_decision_kept": 295,
+   "n_with_decision": 490,
+   "noise_floor": {
+    "all": {
+     "commit_minus_c3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.008765,
+       0.02863
+      ],
+      "diff": 0.010204081632653059,
+      "sums": {
+       "ad": 490.0,
+       "an": 44.0,
+       "bd": 2450.0,
+       "bn": 195.0
+      }
+     },
+     "defer_minus_c3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.034547,
+       0.019625
+      ],
+      "diff": -0.00897959183673469,
+      "sums": {
+       "ad": 490.0,
+       "an": 96.0,
+       "bd": 2450.0,
+       "bn": 502.0
+      }
+     },
+     "flip_minus_c3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.026907,
+       0.028932
+      ],
+      "diff": 0.0012244897959183265,
+      "sums": {
+       "ad": 490.0,
+       "an": 140.0,
+       "bd": 2450.0,
+       "bn": 697.0
+      }
+     }
+    },
+    "answers_that_differ_from_v3_on_changed": {
+     "ci95": [
+      0.203294,
+      0.333333
+     ],
+     "k": 52.0,
+     "n": 195.0,
+     "value": 0.26666666666666666
+    },
+    "c3_repeats_that_differ_from_v3_same_handoffs": {
+     "ci95": [
+      0.072824,
+      0.136516
+     ],
+     "k": 100.0,
+     "n": 975.0,
+     "value": 0.10256410256410256
+    },
+    "c3_reported": 0.093,
+    "changed_only": {
+     "commit_minus_c3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.00229,
+       0.078178
+      ],
+      "diff": 0.039999999999999994,
+      "sums": {
+       "ad": 195.0,
+       "an": 25.0,
+       "bd": 975.0,
+       "bn": 86.0
+      }
+     },
+     "defer_minus_c3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.092597,
+       0.018819
+      ],
+      "diff": -0.04000000000000001,
+      "sums": {
+       "ad": 195.0,
+       "an": 40.0,
+       "bd": 975.0,
+       "bn": 239.0
+      }
+     },
+     "flip_minus_c3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.056863,
+       0.057286
+      ],
+      "diff": 0.0,
+      "sums": {
+       "ad": 195.0,
+       "an": 65.0,
+       "bd": 975.0,
+       "bn": 325.0
+      }
+     }
+    }
+   },
+   "rule": "an arm 'reduces deferral' only if the upper 95% bound of (arm deferral-flip rate minus v3 deferral-flip rate) on the handoffs with an arm decision is below zero; 'does not' otherwise",
+   "unparsed_replies": 0,
+   "verdict": "does not",
+   "verdict_changed_only_descriptive": "does not"
+  },
+  "R3_fragment_removed": {
+   "all": {
+    "commit_minus_v3": {
+     "bounds": "includes zero",
+     "ci95": [
+      -0.002058,
+      0.033802
+     ],
+     "diff": 0.0163265306122449,
+     "k_a": 44,
+     "k_b": 36,
+     "n": 490
+    },
+    "commit_rate": {
+     "ci95": [
+      0.064573,
+      0.114998
+     ],
+     "k": 44,
+     "n": 490,
+     "value": 0.08979591836734693
+    },
+    "defer_minus_v3": {
+     "bounds": "below zero",
+     "ci95": [
+      -0.05808,
+      -0.010395
+     ],
+     "diff": -0.03469387755102041,
+     "k_a": 88,
+     "k_b": 105,
+     "n": 490
+    },
+    "defer_rate": {
+     "ci95": [
+      0.145961,
+      0.214905
+     ],
+     "k": 88,
+     "n": 490,
+     "value": 0.17959183673469387
+    },
+    "flip_minus_v3": {
+     "bounds": "includes zero",
+     "ci95": [
+      -0.046913,
+      0.005863
+     ],
+     "diff": -0.02040816326530612,
+     "k_a": 132,
+     "k_b": 142,
+     "n": 490
+    },
+    "flip_rate": {
+     "ci95": [
+      0.227989,
+      0.309067
+     ],
+     "k": 132,
+     "n": 490,
+     "value": 0.2693877551020408
+    },
+    "n": 490,
+    "v3_commit_rate": {
+     "ci95": [
+      0.051123,
+      0.097718
+     ],
+     "k": 36,
+     "n": 490,
+     "value": 0.07346938775510205
+    },
+    "v3_defer_rate": {
+     "ci95": [
+      0.176014,
+      0.254318
+     ],
+     "k": 105,
+     "n": 490,
+     "value": 0.21428571428571427
+    },
+    "v3_flip_rate": {
+     "ci95": [
+      0.248031,
+      0.331933
+     ],
+     "k": 142,
+     "n": 490,
+     "value": 0.2897959183673469
+    }
+   },
+   "by_cut": {
+    "cut": {
+     "commit_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.002825,
+       0.047489
+      ],
+      "diff": 0.022922636103151862,
+      "k_a": 32,
+      "k_b": 24,
+      "n": 349
+     },
+     "commit_rate": {
+      "ci95": [
+       0.062853,
+       0.12122
+      ],
+      "k": 32,
+      "n": 349,
+      "value": 0.09169054441260745
+     },
+     "defer_minus_v3": {
+      "bounds": "below zero",
+      "ci95": [
+       -0.080255,
+       -0.01479
+      ],
+      "diff": -0.04871060171919771,
+      "k_a": 58,
+      "k_b": 75,
+      "n": 349
+     },
+     "defer_rate": {
+      "ci95": [
+       0.127994,
+       0.206711
+      ],
+      "k": 58,
+      "n": 349,
+      "value": 0.166189111747851
+     },
+     "flip_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.065755,
+       0.008578
+      ],
+      "diff": -0.02865329512893983,
+      "k_a": 90,
+      "k_b": 100,
+      "n": 349
+     },
+     "flip_rate": {
+      "ci95": [
+       0.211538,
+       0.30164
+      ],
+      "k": 90,
+      "n": 349,
+      "value": 0.25787965616045844
+     },
+     "n": 349,
+     "v3_commit_rate": {
+      "ci95": [
+       0.043732,
+       0.096419
+      ],
+      "k": 24,
+      "n": 349,
+      "value": 0.06876790830945559
+     },
+     "v3_defer_rate": {
+      "ci95": [
+       0.170935,
+       0.261906
+      ],
+      "k": 75,
+      "n": 349,
+      "value": 0.2148997134670487
+     },
+     "v3_flip_rate": {
+      "ci95": [
+       0.237957,
+       0.331477
+      ],
+      "k": 100,
+      "n": 349,
+      "value": 0.28653295128939826
+     }
+    },
+    "not_cut": {
+     "commit_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "diff": 0.0,
+      "k_a": 12,
+      "k_b": 12,
+      "n": 141
+     },
+     "commit_rate": {
+      "ci95": [
+       0.039434,
+       0.137706
+      ],
+      "k": 12,
+      "n": 141,
+      "value": 0.0851063829787234
+     },
+     "defer_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "diff": 0.0,
+      "k_a": 30,
+      "k_b": 30,
+      "n": 141
+     },
+     "defer_rate": {
+      "ci95": [
+       0.147861,
+       0.285714
+      ],
+      "k": 30,
+      "n": 141,
+      "value": 0.2127659574468085
+     },
+     "flip_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "diff": 0.0,
+      "k_a": 42,
+      "k_b": 42,
+      "n": 141
+     },
+     "flip_rate": {
+      "ci95": [
+       0.226934,
+       0.375941
+      ],
+      "k": 42,
+      "n": 141,
+      "value": 0.2978723404255319
+     },
+     "n": 141,
+     "v3_commit_rate": {
+      "ci95": [
+       0.039434,
+       0.137706
+      ],
+      "k": 12,
+      "n": 141,
+      "value": 0.0851063829787234
+     },
+     "v3_defer_rate": {
+      "ci95": [
+       0.147861,
+       0.285714
+      ],
+      "k": 30,
+      "n": 141,
+      "value": 0.2127659574468085
+     },
+     "v3_flip_rate": {
+      "ci95": [
+       0.226934,
+       0.375941
+      ],
+      "k": 42,
+      "n": 141,
+      "value": 0.2978723404255319
+     }
+    }
+   },
+   "by_fragment_names_action_descriptive": {
+    "fragment_names_an_action": {
+     "commit_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.023536,
+       0.048796
+      ],
+      "diff": 0.01098901098901099,
+      "k_a": 7,
+      "k_b": 6,
+      "n": 91
+     },
+     "commit_rate": {
+      "ci95": [
+       0.025625,
+       0.133371
+      ],
+      "k": 7,
+      "n": 91,
+      "value": 0.07692307692307693
+     },
+     "defer_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.111111,
+       0.023544
+      ],
+      "diff": -0.04395604395604396,
+      "k_a": 18,
+      "k_b": 22,
+      "n": 91
+     },
+     "defer_rate": {
+      "ci95": [
+       0.118264,
+       0.2842
+      ],
+      "k": 18,
+      "n": 91,
+      "value": 0.1978021978021978
+     },
+     "flip_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.102586,
+       0.040404
+      ],
+      "diff": -0.03296703296703297,
+      "k_a": 25,
+      "k_b": 28,
+      "n": 91
+     },
+     "flip_rate": {
+      "ci95": [
+       0.1875,
+       0.375
+      ],
+      "k": 25,
+      "n": 91,
+      "value": 0.27472527472527475
+     },
+     "n": 91,
+     "v3_commit_rate": {
+      "ci95": [
+       0.020828,
+       0.121212
+      ],
+      "k": 6,
+      "n": 91,
+      "value": 0.06593406593406594
+     },
+     "v3_defer_rate": {
+      "ci95": [
+       0.16129,
+       0.333333
+      ],
+      "k": 22,
+      "n": 91,
+      "value": 0.24175824175824176
+     },
+     "v3_flip_rate": {
+      "ci95": [
+       0.220173,
+       0.406603
+      ],
+      "k": 28,
+      "n": 91,
+      "value": 0.3076923076923077
+     }
+    },
+    "fragment_names_no_action": {
+     "commit_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       0.0,
+       0.060737
+      ],
+      "diff": 0.029166666666666667,
+      "k_a": 24,
+      "k_b": 17,
+      "n": 240
+     },
+     "commit_rate": {
+      "ci95": [
+       0.0612,
+       0.13963
+      ],
+      "k": 24,
+      "n": 240,
+      "value": 0.1
+     },
+     "defer_minus_v3": {
+      "bounds": "below zero",
+      "ci95": [
+       -0.096646,
+       -0.009167
+      ],
+      "diff": -0.05416666666666667,
+      "k_a": 33,
+      "k_b": 46,
+      "n": 240
+     },
+     "defer_rate": {
+      "ci95": [
+       0.095417,
+       0.183415
+      ],
+      "k": 33,
+      "n": 240,
+      "value": 0.1375
+     },
+     "flip_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.077242,
+       0.015754
+      ],
+      "diff": -0.029166666666666667,
+      "k_a": 57,
+      "k_b": 64,
+      "n": 240
+     },
+     "flip_rate": {
+      "ci95": [
+       0.1818,
+       0.290602
+      ],
+      "k": 57,
+      "n": 240,
+      "value": 0.2375
+     },
+     "n": 240,
+     "v3_commit_rate": {
+      "ci95": [
+       0.041832,
+       0.103309
+      ],
+      "k": 17,
+      "n": 240,
+      "value": 0.07083333333333333
+     },
+     "v3_defer_rate": {
+      "ci95": [
+       0.14158,
+       0.246982
+      ],
+      "k": 46,
+      "n": 240,
+      "value": 0.19166666666666668
+     },
+     "v3_flip_rate": {
+      "ci95": [
+       0.210965,
+       0.325895
+      ],
+      "k": 64,
+      "n": 240,
+      "value": 0.26666666666666666
+     }
+    }
+   },
+   "changed_only": {
+    "commit_minus_v3": {
+     "bounds": "includes zero",
+     "ci95": [
+      -0.002968,
+      0.049422
+     ],
+     "diff": 0.02416918429003021,
+     "k_a": 31,
+     "k_b": 23,
+     "n": 331
+    },
+    "commit_rate": {
+     "ci95": [
+      0.062696,
+      0.12426
+     ],
+     "k": 31,
+     "n": 331,
+     "value": 0.09365558912386707
+    },
+    "defer_minus_v3": {
+     "bounds": "below zero",
+     "ci95": [
+      -0.085175,
+      -0.015768
+     ],
+     "diff": -0.0513595166163142,
+     "k_a": 51,
+     "k_b": 68,
+     "n": 331
+    },
+    "defer_rate": {
+     "ci95": [
+      0.115271,
+      0.193149
+     ],
+     "k": 51,
+     "n": 331,
+     "value": 0.1540785498489426
+    },
+    "flip_minus_v3": {
+     "bounds": "includes zero",
+     "ci95": [
+      -0.069186,
+      0.009289
+     ],
+     "diff": -0.030211480362537766,
+     "k_a": 82,
+     "k_b": 92,
+     "n": 331
+    },
+    "flip_rate": {
+     "ci95": [
+      0.201874,
+      0.29052
+     ],
+     "k": 82,
+     "n": 331,
+     "value": 0.24773413897280966
+    },
+    "n": 331,
+    "v3_commit_rate": {
+     "ci95": [
+      0.043475,
+      0.097646
+     ],
+     "k": 23,
+     "n": 331,
+     "value": 0.06948640483383686
+    },
+    "v3_defer_rate": {
+     "ci95": [
+      0.160441,
+      0.252843
+     ],
+     "k": 68,
+     "n": 331,
+     "value": 0.2054380664652568
+    },
+    "v3_flip_rate": {
+     "ci95": [
+      0.23005,
+      0.325004
+     ],
+     "k": 92,
+     "n": 331,
+     "value": 0.27794561933534745
+    }
+   },
+   "n_changed": 331,
+   "n_emptied_not_sent": 0,
+   "n_handoffs": 490,
+   "n_new_decisions": 331,
+   "n_v3_decision_kept": 159,
+   "n_with_decision": 490,
+   "noise_floor": {
+    "all": {
+     "commit_minus_c3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.005815,
+       0.025116
+      ],
+      "diff": 0.010204081632653059,
+      "sums": {
+       "ad": 490.0,
+       "an": 44.0,
+       "bd": 2450.0,
+       "bn": 195.0
+      }
+     },
+     "defer_minus_c3": {
+      "bounds": "below zero",
+      "ci95": [
+       -0.048924,
+       -0.001209
+      ],
+      "diff": -0.02530612244897959,
+      "sums": {
+       "ad": 490.0,
+       "an": 88.0,
+       "bd": 2450.0,
+       "bn": 502.0
+      }
+     },
+     "flip_minus_c3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.041368,
+       0.009893
+      ],
+      "diff": -0.015102040816326545,
+      "sums": {
+       "ad": 490.0,
+       "an": 132.0,
+       "bd": 2450.0,
+       "bn": 697.0
+      }
+     }
+    },
+    "answers_that_differ_from_v3_on_changed": {
+     "ci95": [
+      0.118632,
+      0.201183
+     ],
+     "k": 53.0,
+     "n": 331.0,
+     "value": 0.16012084592145015
+    },
+    "c3_repeats_that_differ_from_v3_same_handoffs": {
+     "ci95": [
+      0.085995,
+      0.139773
+     ],
+     "k": 184.0,
+     "n": 1655.0,
+     "value": 0.11117824773413898
+    },
+    "c3_reported": 0.093,
+    "changed_only": {
+     "commit_minus_c3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.003673,
+       0.039356
+      ],
+      "diff": 0.01812688821752266,
+      "sums": {
+       "ad": 331.0,
+       "an": 31.0,
+       "bd": 1655.0,
+       "bn": 125.0
+      }
+     },
+     "defer_minus_c3": {
+      "bounds": "below zero",
+      "ci95": [
+       -0.075318,
+       -0.007615
+      ],
+      "diff": -0.04290030211480364,
+      "sums": {
+       "ad": 331.0,
+       "an": 51.0,
+       "bd": 1655.0,
+       "bn": 326.0
+      }
+     },
+     "flip_minus_c3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.061318,
+       0.010499
+      ],
+      "diff": -0.024773413897280994,
+      "sums": {
+       "ad": 331.0,
+       "an": 82.0,
+       "bd": 1655.0,
+       "bn": 451.0
+      }
+     }
+    }
+   },
+   "rule": "an arm 'reduces deferral' only if the upper 95% bound of (arm deferral-flip rate minus v3 deferral-flip rate) on the handoffs with an arm decision is below zero; 'does not' otherwise",
+   "unparsed_replies": 0,
+   "verdict": "reduces deferral",
+   "verdict_changed_only_descriptive": "reduces deferral"
+  },
+  "c3_reference": {
+   "answers_that_differ_from_v3": {
+    "ci95": [
+     0.073949,
+     0.114286
+    ],
+    "k": 228.0,
+    "n": 2450.0,
+    "value": 0.09306122448979592
+   },
+   "commit_minus_v3": {
+    "bounds": "includes zero",
+    "ci95": [
+     -0.006197,
+     0.020927
+    ],
+    "diff": 0.006122448979591827,
+    "sums": {
+     "ad": 2450.0,
+     "an": 195.0,
+     "bd": 490.0,
+     "bn": 36.0
+    }
+   },
+   "commit_rate": {
+    "ci95": [
+     0.058479,
+     0.102293
+    ],
+    "k": 195.0,
+    "n": 2450.0,
+    "value": 0.07959183673469387
+   },
+   "defer_minus_v3": {
+    "bounds": "includes zero",
+    "ci95": [
+     -0.026641,
+     0.00563
+    ],
+    "diff": -0.009387755102040818,
+    "sums": {
+     "ad": 2450.0,
+     "an": 502.0,
+     "bd": 490.0,
+     "bn": 105.0
+    }
+   },
+   "defer_rate": {
+    "ci95": [
+     0.168118,
+     0.24332
+    ],
+    "k": 502.0,
+    "n": 2450.0,
+    "value": 0.20489795918367346
+   },
+   "flip_minus_v3": {
+    "bounds": "includes zero",
+    "ci95": [
+     -0.026194,
+     0.015638
+    ],
+    "diff": -0.0053061224489795444,
+    "sums": {
+     "ad": 2450.0,
+     "an": 697.0,
+     "bd": 490.0,
+     "bn": 142.0
+    }
+   },
+   "flip_rate": {
+    "ci95": [
+     0.243654,
+     0.326295
+    ],
+    "k": 697.0,
+    "n": 2450.0,
+    "value": 0.28448979591836737
+   },
+   "note": "identical v3 note, five new reads (v5 arm C3): what reader noise alone does",
+   "repeats_per_handoff": 5
+  }
+ },
+ "study_X": {
+  "1_split_on_eligible": {
+   "n": 490,
+   "notes": {
+    "x1p": {
+     "mean_tokens": 145.93673469387755,
+     "n": 490,
+     "p_residue_missing": 0,
+     "status": {
+      "ok": 490
+     }
+    },
+    "x1r": {
+     "mean_tokens": 146.8204081632653,
+     "n": 490,
+     "p_residue_missing": 0,
+     "status": {
+      "ok": 490
+     }
+    }
+   },
+   "rule": "the gain 'comes with the policy' if X1p minus v3 has its upper 95% bound below zero and X1r minus v3 does not; 'comes with the reader description' in the mirrored case; 'both' if both upper bounds are below zero; 'neither separable' if neither is",
+   "unparsed_replies": {
+    "x1p": 0,
+    "x1r": 0
+   },
+   "v3_defer_rate": {
+    "ci95": [
+     0.176014,
+     0.254318
+    ],
+    "k": 105,
+    "n": 490,
+    "value": 0.21428571428571427
+   },
+   "v3_flip_rate": {
+    "ci95": [
+     0.248031,
+     0.331933
+    ],
+    "k": 142,
+    "n": 490,
+    "value": 0.2897959183673469
+   },
+   "verdict": "both",
+   "x1_defer_rate": {
+    "ci95": [
+     0.066398,
+     0.119642
+    ],
+    "k": 45,
+    "n": 490,
+    "value": 0.09183673469387756
+   },
+   "x1_flip_rate": {
+    "ci95": [
+     0.115755,
+     0.175064
+    ],
+    "k": 71,
+    "n": 490,
+    "value": 0.14489795918367346
+   },
+   "x1_minus_v3": {
+    "bounds": "below zero",
+    "ci95": [
+     -0.190662,
+     -0.100208
+    ],
+    "diff": -0.14489795918367346,
+    "k_a": 71,
+    "k_b": 142,
+    "n": 490
+   },
+   "x1p_defer_rate": {
+    "ci95": [
+     0.124498,
+     0.192551
+    ],
+    "k": 77,
+    "n": 490,
+    "value": 0.15714285714285714
+   },
+   "x1p_flip_rate": {
+    "ci95": [
+     0.170251,
+     0.24352
+    ],
+    "k": 101,
+    "n": 490,
+    "value": 0.20612244897959184
+   },
+   "x1p_minus_v3": {
+    "bounds": "below zero",
+    "ci95": [
+     -0.130635,
+     -0.039652
+    ],
+    "diff": -0.0836734693877551,
+    "k_a": 101,
+    "k_b": 142,
+    "n": 490
+   },
+   "x1p_minus_x1": {
+    "bounds": "above zero",
+    "ci95": [
+     0.024982,
+     0.097839
+    ],
+    "diff": 0.061224489795918366,
+    "k_a": 101,
+    "k_b": 71,
+    "n": 490
+   },
+   "x1p_minus_x1r": {
+    "bounds": "includes zero",
+    "ci95": [
+     -0.077359,
+     0.00604
+    ],
+    "diff": -0.036734693877551024,
+    "k_a": 101,
+    "k_b": 119,
+    "n": 490
+   },
+   "x1r_defer_rate": {
+    "ci95": [
+     0.134654,
+     0.209558
+    ],
+    "k": 84,
+    "n": 490,
+    "value": 0.17142857142857143
+   },
+   "x1r_flip_rate": {
+    "ci95": [
+     0.205813,
+     0.282166
+    ],
+    "k": 119,
+    "n": 490,
+    "value": 0.24285714285714285
+   },
+   "x1r_minus_v3": {
+    "bounds": "below zero",
+    "ci95": [
+     -0.083346,
+     -0.008063
+    ],
+    "diff": -0.04693877551020408,
+    "k_a": 119,
+    "k_b": 142,
+    "n": 490
+   },
+   "x1r_minus_x1": {
+    "bounds": "above zero",
+    "ci95": [
+     0.056127,
+     0.140858
+    ],
+    "diff": 0.09795918367346938,
+    "k_a": 119,
+    "k_b": 71,
+    "n": 490
+   }
+  },
+  "2_a_wrong": {
+   "a_wrong_actions": {
+    "APPLY_CREDIT": 14,
+    "CHECK_DEVICE": 13,
+    "EXPLAIN": 35,
+    "OPEN_REVIEW": 103,
+    "REQUEST_INFO": 505
+   },
+   "b_actions": {
+    "v3_notes": {
+     "APPLY_CREDIT": 11,
+     "CHECK_DEVICE": 14,
+     "EXPLAIN": 84,
+     "OPEN_REVIEW": 26,
+     "REQUEST_INFO": 535
+    },
+    "x1_notes": {
+     "APPLY_CREDIT": 19,
+     "CHECK_DEVICE": 10,
+     "EXPLAIN": 147,
+     "OPEN_REVIEW": 38,
+     "REQUEST_INFO": 456
+    }
+   },
+   "defer_v3_notes": {
+    "ci95": [
+     0.769576,
+     0.828874
+    ],
+    "k": 535,
+    "n": 670,
+    "value": 0.7985074626865671
+   },
+   "defer_x1_minus_v3": {
+    "bounds": "below zero",
+    "ci95": [
+     -0.151428,
+     -0.079987
+    ],
+    "diff": -0.11791044776119403,
+    "k_a": 456,
+    "k_b": 535,
+    "n": 670
+   },
+   "defer_x1_notes": {
+    "ci95": [
+     0.647579,
+     0.712717
+    ],
+    "k": 456,
+    "n": 670,
+    "value": 0.6805970149253732
+   },
+   "n": 670,
+   "notes": {
+    "v3_notes": {
+     "mean_tokens": 146.4268656716418,
+     "n": 670,
+     "status": {
+      "ok": 670
+     }
+    },
+    "x1_notes": {
+     "mean_tokens": 146.9910447761194,
+     "n": 670,
+     "status": {
+      "ok": 670
+     }
+    }
+   },
+   "repeat_v3_notes": {
+    "ci95": [
+     0.731975,
+     0.79018
+    ],
+    "k": 510,
+    "n": 670,
+    "value": 0.7611940298507462
+   },
+   "repeat_x1_minus_v3": {
+    "bounds": "below zero",
+    "ci95": [
+     -0.078021,
+     -0.013288
+    ],
+    "diff": -0.04477611940298507,
+    "k_a": 480,
+    "k_b": 510,
+    "n": 670
+   },
+   "repeat_x1_notes": {
+    "ci95": [
+     0.685044,
+     0.747997
+    ],
+    "k": 480,
+    "n": 670,
+    "value": 0.7164179104477612
+   },
+   "rescue_v3_notes": {
+    "ci95": [
+     0.126878,
+     0.176122
+    ],
+    "k": 102,
+    "n": 670,
+    "value": 0.15223880597014924
+   },
+   "rescue_x1_minus_v3": {
+    "bounds": "above zero",
+    "ci95": [
+     0.020022,
+     0.084969
+    ],
+    "diff": 0.050746268656716415,
+    "k_a": 136,
+    "k_b": 102,
+    "n": 670
+   },
+   "rescue_x1_notes": {
+    "ci95": [
+     0.172561,
+     0.233232
+    ],
+    "k": 136,
+    "n": 670,
+    "value": 0.20298507462686566
+   },
+   "unparsed_replies": {
+    "v3_notes": 0,
+    "x1_notes": 0
+   }
+  },
+  "3_two_sided": {
+   "accuracy_v3_notes": {
+    "ci95": [
+     0.356756,
+     0.420416
+    ],
+    "k": 450,
+    "n": 1160,
+    "value": 0.3879310344827586
+   },
+   "accuracy_x1_notes": {
+    "ci95": [
+     0.449996,
+     0.505974
+    ],
+    "k": 555,
+    "n": 1160,
+    "value": 0.47844827586206895
+   },
+   "by_set": {
+    "a_wrong": {
+     "accuracy_v3_notes": {
+      "ci95": [
+       0.126878,
+       0.176122
+      ],
+      "k": 102,
+      "n": 670,
+      "value": 0.15223880597014924
+     },
+     "accuracy_x1_notes": {
+      "ci95": [
+       0.172561,
+       0.233232
+      ],
+      "k": 136,
+      "n": 670,
+      "value": 0.20298507462686566
+     },
+     "n": 670,
+     "x1_minus_v3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.020022,
+       0.084969
+      ],
+      "diff": 0.050746268656716415,
+      "k_a": 136,
+      "k_b": 102,
+      "n": 670
+     }
+    },
+    "eligible": {
+     "accuracy_v3_notes": {
+      "ci95": [
+       0.668067,
+       0.751969
+      ],
+      "k": 348,
+      "n": 490,
+      "value": 0.710204081632653
+     },
+     "accuracy_x1_notes": {
+      "ci95": [
+       0.824936,
+       0.884245
+      ],
+      "k": 419,
+      "n": 490,
+      "value": 0.8551020408163266
+     },
+     "n": 490,
+     "x1_minus_v3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.100208,
+       0.190662
+      ],
+      "diff": 0.14489795918367346,
+      "k_a": 419,
+      "k_b": 348,
+      "n": 490
+     }
+    }
+   },
+   "by_system_descriptive": {
+    "rag-bm25": {
+     "n": 290,
+     "x1_minus_v3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.003401,
+       0.134483
+      ],
+      "diff": 0.06896551724137931,
+      "k_a": 202,
+      "k_b": 182,
+      "n": 290
+     }
+    },
+    "rag-embed": {
+     "n": 290,
+     "x1_minus_v3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.116838,
+       0.221852
+      ],
+      "diff": 0.16896551724137931,
+      "k_a": 168,
+      "k_b": 119,
+      "n": 290
+     }
+    },
+    "recent": {
+     "n": 290,
+     "x1_minus_v3": {
+      "bounds": "includes zero",
+      "ci95": [
+       -0.04082,
+       0.040816
+      ],
+      "diff": 0.0,
+      "k_a": 91,
+      "k_b": 91,
+      "n": 290
+     }
+    },
+    "summary": {
+     "n": 290,
+     "x1_minus_v3": {
+      "bounds": "above zero",
+      "ci95": [
+       0.082178,
+       0.1723
+      ],
+      "diff": 0.12413793103448276,
+      "k_a": 94,
+      "k_b": 58,
+      "n": 290
+     }
+    }
+   },
+   "n": 1160,
+   "x1_minus_v3": {
+    "bounds": "above zero",
+    "ci95": [
+     0.06376,
+     0.11553
+    ],
+    "diff": 0.09051724137931035,
+    "k_a": 555,
+    "k_b": 450,
+    "n": 1160
+   }
+  }
+ },
+ "text_rules": {
+  "cut": 349,
+  "cut_and_mid_sentence": 331,
+  "cut_unknown": 0,
+  "mid_sentence": 331,
+  "notes": 490,
+  "r2": {
+   "changed": 195,
+   "empty": 0,
+   "notes_by_rule": {
+    "H1": 65,
+    "H2": 8,
+    "H3": 93,
+    "H4": 60
+   },
+   "sentences_dropped": 224
+  },
+  "r2_and_r3_same_text": 40,
+  "r3": {
+   "changed": 331,
+   "empty": 0,
+   "fragment_names_a_action": 58,
+   "fragment_names_an_action": 91,
+   "note_names_an_action": 335
+  }
+ },
+ "version": "7-exploratory"
+}
