@@ -13,7 +13,8 @@ from lens.flip import export_metrics as X
 
 ROOT = Path(__file__).resolve().parents[2]
 RES = ROOT / "results"
-METRIC_FILES = (X.S1_NAME, X.V3_NAME, X.V4_NAME, X.V5_NAME, X.C1_NAME, X.CAL_NAME)
+V6_NAME = "exploratory-v6/handoff_metrics_v6.jsonl"
+METRIC_FILES = (X.S1_NAME, X.V3_NAME, X.V4_NAME, X.V5_NAME, X.C1_NAME, X.CAL_NAME, V6_NAME)
 
 _spec = importlib.util.spec_from_file_location("rebuild_paper", ROOT / "scripts" / "rebuild_paper.py")
 R = importlib.util.module_from_spec(_spec)
@@ -51,14 +52,15 @@ def test_case_order_is_the_frozen_one(built):
     D, _, _ = built
     cases = [json.loads(x)["case_id"] for x in D.cases_path.read_text(encoding="utf-8").splitlines() if x.strip()]
     assert D.case_ids == cases and len(cases) == 300
-    assert len(D.v3) == 490 and len(D.s1) == 3600 and len(D.v5) == 8 * 490
+    assert len(D.v3) == 490 and len(D.s1) == 3600 and len(D.v5) == 8 * 490 and len(D.v6) == 490
+    assert all(D.case_ids[r["case_index"]] == r["case_id"] and r["n_cases"] == 300 for r in D.v6)
 
 
 def test_every_paper_cell_matches(built, capsys):
     _, expected, tables = built
     n_ok, n_bad = R.run_check(tables, expected, quiet=True)
     assert n_bad == 0, capsys.readouterr().out
-    assert n_ok == sum(len(c) for t in expected.values() for c in t["rows"].values()) == 406
+    assert n_ok == sum(len(c) for t in expected.values() for c in t["rows"].values()) == 449
     assert set(expected) == set(tables)
 
 
@@ -112,3 +114,15 @@ def test_frozen_prompt_hashes_match_the_released_protocol_files():
     assert P5.current()["reused_v3"] == f5["reused_v3"] == f5b["reused_v3"]
     assert sha(judge2.build_prompt("{NOTE}", "{UNIT}")) == fj["prompt_sha256"]
     assert judge2.JUDGE_FORMAT == fj["format"]
+
+
+def test_v6_summary_rebuilds_from_its_metric_file():
+    import hashlib
+
+    from lens.flip.explore6 import analysis as A6
+
+    stored = json.loads((RES / "exploratory-v6" / "summary_v6.json").read_text(encoding="utf-8"))
+    body = json.loads(json.dumps(A6.rebuild(RES / V6_NAME)))
+    assert body and all(stored[k] == v for k, v in body.items())
+    assert hashlib.sha256((RES / V6_NAME).read_bytes()).hexdigest() == stored["metrics_file"]["sha256"]
+    assert stored["E1_extractive"]["primary_2_content_specific"]["verdict"] == "not supported"

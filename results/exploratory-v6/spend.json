@@ -1,0 +1,67 @@
+{
+ "arms": {
+  "E1": {
+   "actual_usd": 0.378474,
+   "by_stage": {
+    "e1_ctl_B": {
+     "input_tokens": 811531,
+     "output_tokens": 652605,
+     "requests": 870,
+     "usd": 0.203728
+    },
+    "e1_fresh_B": {
+     "input_tokens": 699500,
+     "output_tokens": 559086,
+     "requests": 720,
+     "usd": 0.174747
+    }
+   },
+   "input_tokens": 1511031,
+   "output_tokens": 1211691,
+   "rounds": [
+    {
+     "actual_usd": 0.378474,
+     "by_stage": {
+      "e1_ctl_B": 870,
+      "e1_fresh_B": 720
+     },
+     "failed_or_retried": 0,
+     "likely_usd": 0.433609,
+     "n_requests": 1590,
+     "round": 1,
+     "upper_bound_usd": 2.476893
+    }
+   ]
+  },
+  "P1": {
+   "actual_usd": 0.054051,
+   "by_stage": {
+    "p1_fresh_B": {
+     "input_tokens": 204570,
+     "output_tokens": 175290,
+     "requests": 205,
+     "usd": 0.054051
+    }
+   },
+   "input_tokens": 204570,
+   "output_tokens": 175290,
+   "rounds": [
+    {
+     "actual_usd": 0.054051,
+     "by_stage": {
+      "p1_fresh_B": 205
+     },
+     "failed_or_retried": 0,
+     "likely_usd": 0.057798,
+     "n_requests": 205,
+     "round": 1,
+     "upper_bound_usd": 0.320114
+    }
+   ]
+  }
+ },
+ "cap_usd": 3.0,
+ "remaining_usd": 2.567475,
+ "total_usd": 0.432525,
+ "updated_at": "2026-11-19 08:16:42 UTC"
+}

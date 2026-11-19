@@ -1,4 +1,4 @@
-"""Rebuild every table of the paper, the Figure 2 numbers and the paper facts from the text-free metric files.
+"""Rebuild every table of the paper (1 to 13), the Figure 2 numbers and the paper facts from the text-free metric files.
 
     uv run python scripts/rebuild_paper.py                 # print every table and the paper facts
     uv run python scripts/rebuild_paper.py --check         # compare each cell with results/paper_expected.json
@@ -12,6 +12,7 @@ Inputs (no note, view, unit, reason or prompt text in any of them):
     results/exploratory-v5/handoff_metrics_v5.jsonl            Tables 7, 9, 10, 11, 12
     results/exploratory-v5/c1_control_metrics_v5.jsonl         Tables 8, 9
     results/exploratory-v5/judge_calibration_metrics_v5.jsonl  Table 10, first column
+    results/exploratory-v6/handoff_metrics_v6.jsonl            Table 13 and the v6 numbers in the text
     results/headline-300-v3/cases.jsonl                        the generated cases (paper facts on histories)
 
 Bootstrap: the frozen one. Seed 11, 1,000 resamples of the 300 cases, paired by case: every row of a
@@ -193,6 +194,7 @@ class Data:
         self.v5 = _jsonl(res / "exploratory-v5" / "handoff_metrics_v5.jsonl")
         self.c1 = _jsonl(res / "exploratory-v5" / "c1_control_metrics_v5.jsonl")
         self.cal = _jsonl(res / "exploratory-v5" / "judge_calibration_metrics_v5.jsonl")
+        self.v6 = _jsonl(res / "exploratory-v6" / "handoff_metrics_v6.jsonl")
         self.cases_path = res / "headline-300-v3" / "cases.jsonl"
         self.case_ids = list(dict.fromkeys(r["case_id"] for r in self.s1))   # case order of the frozen run
         self.M = Metrics(self.case_ids)
@@ -479,6 +481,75 @@ def tables_v5(D: Data) -> dict:
     return out
 
 
+def _v6(r: dict) -> dict:
+    """The per-handoff quantities of protocol v6. Everything is zero on a handoff that is not a flip.
+
+    t_fresh: share of the five fresh re-reads of the minimal restoring set that restore (0 when the search did not
+    restore). t_search: 1 when the search restored. c: share of the matched and sent controls that restore.
+    The p_ fields are the same for the paraphrased v3 notes, with the frozen v5 C1 controls."""
+    share = lambda k, n: k / n if n else 0.0
+    f = bool(r["e1_flip"])
+    ass, sent = bool(f and r["e1_ctl_matched"]), bool(f and r["e1_ctl_sent"])
+    rest = bool(f and r["e1_search_restored"])
+    v3f = bool(r["v3_flip"])
+    p_ass, p_rest = bool(v3f and r["c1v5_matched"]), bool(v3f and r["v3_search_restored"])
+    return {**r, "flip": f, "assessed": ass, "has_sent": sent, "t_search": int(rest),
+            "t_fresh": share(r["e1_fresh_restored"], r["e1_fresh_n"]) if rest else 0.0,
+            "c": share(r["e1_ctl_matched_restored"], r["e1_ctl_matched"]) if ass else 0.0,
+            "c_all": share(r["e1_ctl_sent_restored"], r["e1_ctl_sent"]) if sent else 0.0,
+            "any": bool(ass and r["e1_ctl_matched_restored"]),
+            "p_assessed": p_ass, "p_t_search": int(p_rest),
+            "p_t_fresh": share(r["p1_fresh_restored"], r["p1_fresh_n"]) if p_rest else 0.0,
+            "p_c": share(r["c1v5_matched_restored"], r["c1v5_matched"]) if p_ass else 0.0}
+
+
+def table13(D: Data) -> dict:
+    M = D.M
+    rows = [_v6(r) for r in D.v6]
+    assert all(D.case_ids[r["case_index"]] == r["case_id"] for r in rows), "v6 case order is not the frozen one"
+    flips = [r for r in rows if r["flip"]]
+    ass = [r for r in flips if r["assessed"]]
+    rest = [r for r in flips if r["t_search"]]
+    p_rest = [r for r in rows if r["p_t_search"]]
+    p_ass = [r for r in rows if r["p_assessed"]]
+    fl = lambda r: r["v3_floor_flip"]
+    fsum = lambda rows_, f: Cell("{:.1f} of {:,d}", sum(map(f, rows_)), len(rows_))
+    tf, ts, c = (lambda r: r["t_fresh"]), (lambda r: r["t_search"]), (lambda r: r["c"])
+    spec = lambda r: r["assessed"] * (r["t_fresh"] - r["c"])
+    spec_s = lambda r: r["assessed"] * (r["t_search"] - r["c"])
+    over = lambda f: [Cell("{:.1f} of {:,d}", sum(map(f, rows)), len(rows)), P(M.ratio(rows, f)), P(M.diff(rows, f, fl))]
+    r_search, r_fresh = M.ratio(rows, ts), M.ratio(rest, lambda r: r["e1_fresh_restored"], lambda r: r["e1_fresh_n"])
+    r_any, r_floor = M.ratio(ass, lambda r: r["any"]), M.ratio(rows, fl)
+    r_p = M.ratio(p_rest, lambda r: r["p1_fresh_restored"], lambda r: r["p1_fresh_n"])
+    t13 = {
+        "Recoverable, search outcome (v4)": [OF(r_search["k"], r_search["n"]), P(r_search), P(M.diff(rows, ts, fl))],
+        "Fresh re-reads that restore": [OF(r_fresh["k"], r_fresh["n"]), P(r_fresh), DASH],
+        "Targeted restore, fresh, assessed flips": [fsum(ass, tf), P(M.ratio(ass, tf)), DASH],
+        "Irrelevant restore, assessed flips": [fsum(ass, c), P(M.ratio(ass, c)), DASH],
+        "Targeted minus irrelevant": [N(len(ass)), P(M.ratio_diff(ass, tf, one, c, one)), DASH],
+        "At least one control restores": [OF(r_any["k"], r_any["n"]), P(r_any), DASH],
+        "Content-specific recoverable rate": over(spec),
+        "Same, search outcome as targeted": over(spec_s),
+        "Rewording floor (v3)": [OF(r_floor["k"], r_floor["n"]), P(r_floor), DASH],
+        "Paraphrased notes: fresh re-reads that restore": [OF(r_p["k"], r_p["n"]), P(r_p), DASH],
+        "Paraphrased notes: omission term, search outcome (v5)": [
+            DASH, P(M.ratio(rows, lambda r: r["p_assessed"] * (r["p_t_search"] - r["p_c"]))), DASH],
+        "Paraphrased notes: omission term, fresh re-reads": [
+            DASH, P(M.ratio(rows, lambda r: r["p_assessed"] * (r["p_t_fresh"] - r["p_c"]))), DASH]}
+    emb = [r for r in ass if r["system"] == "rag-embed"]
+    all5 = sum(r["e1_fresh_n"] > 0 and r["e1_fresh_restored"] == r["e1_fresh_n"] for r in rest)
+    none = sum(r["e1_fresh_n"] > 0 and r["e1_fresh_restored"] == 0 for r in rest)
+    text = {
+        "Minimal sets that restore on all five re-reads": [OF(all5, len(rest))],
+        "Minimal sets that restore on no re-read": [N(none)],
+        "Content-specific rate, every sent control": [P1(M.ratio(rows, lambda r: r["has_sent"] * (r["t_fresh"] - r["c_all"]))["v"])],
+        "rag-embed, irrelevant restore, assessed flips": [P1(M.ratio(emb, c)["v"])],
+        "rag-embed, targeted restore, fresh, assessed flips": [P1(M.ratio(emb, tf)["v"])],
+        "Paraphrased notes, targeted restore, fresh, assessed flips": [P1(M.ratio(p_ass, lambda r: r["p_t_fresh"])["v"])],
+        "Paraphrased notes, irrelevant restore, assessed flips": [P1(M.ratio(p_ass, lambda r: r["p_c"])["v"])]}
+    return {"Table 13": t13, "Table 13 text": text}
+
+
 def figure2(D: Data) -> dict:
     M, v3 = D.M, D.v3
     ex, st, sn = D.arm(D.v4, "extractive"), D.arm(D.v4, "stripped"), D.arm(D.v4, "sonnet")
@@ -506,7 +577,7 @@ def figure2(D: Data) -> dict:
 
 
 def rebuild(D: Data) -> dict:
-    return table1(D) | tables_v3(D) | tables_v4(D) | tables_v5(D) | figure2(D)
+    return table1(D) | tables_v3(D) | tables_v4(D) | tables_v5(D) | table13(D) | figure2(D)
 
 
 # ---------------------------------------------------------------------------

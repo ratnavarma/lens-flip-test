@@ -1,0 +1,55 @@
+{
+  "arm_configs": {
+    "E1": "89494e6c70b3debb0c1a8af5a695b73bd2d2842774833f0ae5ba883777bcdd16",
+    "P1": "ee0d7974f0a4824fd41a320d1d1d98a64ef3820b38a7f83618fdf8a9b051cec0"
+  },
+  "calibration_sha256": "7dfa41aa22ab0772d3fc9e8b428f388ffa85f7e18686f9c958f14ec1f0727225",
+  "cases_sha256": "432e55ca579b74766e9097428fe513bd5a8c96496892dec1b023365ba1a4ed3c",
+  "doc": "docs/flip-protocol-v6-exploratory.md",
+  "dryrun": {
+    "at": "2026-11-19 07:58:24 UTC",
+    "guard": {
+      "E1_fits": true,
+      "E1_round_upper_usd": 2.4769,
+      "P1_fits_after_E1_likely": true,
+      "P1_fits_after_E1_outputs_x1_5": true,
+      "P1_round_upper_usd": 0.3201,
+      "cap_usd": 3.0,
+      "fits": true,
+      "order": [
+        "E1",
+        "P1"
+      ]
+    },
+    "likely_usd": 0.4914,
+    "requests": 1795,
+    "upper_usd": 2.797
+  },
+  "e1_controls_sha256": "95f2417d96780c290c43329662953bbc5360d71ed1de73874cc22fc860113b11",
+  "e1_flips_sha256": "582e9da022bb812cf8c5f1945d479d6354ab9d34d3d4f09533bb3308f507fd1e",
+  "finalized_at": "2026-11-19 07:58 UTC",
+  "frame_sha256": "bed6b1d00288354439f4a0459dc7d512cfc83245b369a141e9e4f1a88f6eb69f",
+  "frozen_at": "2026-11-19 07:58 UTC",
+  "p1_min_sets_sha256": "434b26b8589ae65262445cfb3c7c79bc16f3179f7ada054b7fdc61ea2f713996",
+  "price_gate_usd": 1.5,
+  "reused_v3": {
+    "decider.action_schema": "b5c809762c595781e481572d7b6ead5fb9ef9a4afa1e2afcae093ca81a69efbb",
+    "decider.v1": "f0828f379ef244779cec7c9e8fd2260b23b53f9da81cfd35bf0a8c4dd3673f04",
+    "decider.v1.inserted": "74be01664a51887455a9445a08edbf8eae8c1f75b9a34db9d924a1b9d9b5a8d0",
+    "decider.v2": "afa9c09a90ae59bfc1f92e858bc5d9d34125298c17c0bd74c1bfa70c9b9d718b",
+    "event_templates": "38f5302ef4a810a19679a838828c909cc0e1c753fd2676f6df5776c5af3ac919",
+    "file:render.py": "46567cebd52980297247f58f1c46ad315eac94ff3736427fe092bcb85dc6dfaf",
+    "note.prompt_p_residue": "d06b8aafacbcc2e16280c4e6ebd5069a2e5ec8baeb8e23a2e0829d435a08b6cd",
+    "note.schema": "23b194ce2295f649c6a2a17cdaedf6bccbc5ae05eda412d1d6a65c1af2ae88d0"
+  },
+  "rules": {
+    "x6.analysis": "18b0334951ac96967c3e0f2d3968bf071a7be27e2504e61aa80ae2ff7f36712e",
+    "x6.draw_source": "c60cf2970ce9e5b94dec250451f44f36657c879a319f4bf1c18bedbe7595704b",
+    "x6.e1.control_rule": "f24e277328dfe745f15744b8722164eb2e8ed597258d30aa74b6a05478b3273f",
+    "x6.reread_rule": "7bde0ae00d27461ed914fb63bfd36281c20b8fc7536d0e433426895a07ee9143"
+  },
+  "run_cap_usd": 3.0,
+  "schema": "lens.flip.exploratory/1",
+  "status": "FINAL",
+  "version": "6-exploratory"
+}

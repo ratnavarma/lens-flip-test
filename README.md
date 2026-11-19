@@ -1,6 +1,6 @@
 # Decision Flip Test
 
-Code and run outputs for the paper "Position: Agents Must Know When Their Handoff Notes Change the Decision" [arXiv id pending].
+Code and run outputs for the paper "When a Handoff Note Changes the Reader's Decision: An Empirical Study with Insertion, Rewording and Noise Controls" [arXiv id pending].
 
 ## What the test is
 
@@ -35,9 +35,10 @@ The suite needs no network. Live-model tests skip unless `LENS_OLLAMA=1` is set.
 | `src/lens/flip/batch.py`, `headline/` | the headline pipeline on the Message Batches API |
 | `src/lens/flip/explore4/` | the exploratory v4 studies (Tables 4 to 6) |
 | `src/lens/flip/explore5/` | the exploratory v5 and v5b studies (Tables 7 to 12) |
+| `src/lens/flip/explore6/` | the exploratory v6 study (Table 13) |
 | `src/lens/flip/export_metrics.py` | writes the text-free metric files from the raw runs |
 | `src/lens/flip/omission/` | an exploratory omission comparator, not used in the paper's tables |
-| `docs/` | the design and the frozen protocols v1 to v5b |
+| `docs/` | the design and the frozen protocols v1 to v6 |
 | `results/` | released summaries, cases and metric files (see below) |
 | `scripts/rebuild_paper.py` | rebuilds every table, the Figure 2 numbers and the paper facts |
 | `scripts/reproduce_tables.py` | the earlier check of Tables 1 to 6 against the stored reports |
@@ -91,7 +92,7 @@ uv run pytest -q
 uv run python scripts/rebuild_paper.py --check
 ```
 
-The third command rebuilds Tables 1 to 12 and the Figure 2 numbers. It needs no API key and makes no model call.
+The third command rebuilds Tables 1 to 13 and the Figure 2 numbers. It needs no API key and makes no model call.
 It reads only the metric files under `results/`.
 It compares each cell with `results/paper_expected.json`, which holds the cells as the paper prints them.
 It prints `match` or `MISMATCH` for each cell and exits with 1 on any mismatch.
@@ -111,6 +112,7 @@ Without `--check` the script prints the tables and the paper facts.
 | 7, 9, 10, 11, 12 | `results/exploratory-v5/handoff_metrics_v5.jsonl` |
 | 8, 9 | `results/exploratory-v5/c1_control_metrics_v5.jsonl` |
 | 10, first column | `results/exploratory-v5/judge_calibration_metrics_v5.jsonl` |
+| 13 | `results/exploratory-v6/handoff_metrics_v6.jsonl` |
 
 ## What is shipped and what is not
 
@@ -151,6 +153,9 @@ The metric files hold no model text. `uv run pytest -q` checks this on every fil
 | `results/exploratory-v5/judge2_frozen_v5.json` | prompt hash, threshold and settings of the local judge v2 |
 | `results/exploratory-v5/protocol_v5.json`, `protocol_v5b.json` | v5 and v5b prompt and arm hashes |
 | `results/exploratory-v5/spend.json` | v5 and v5b spend by arm |
+| `results/exploratory-v6/summary_v6.json` | exploratory v6 metrics |
+| `results/exploratory-v6/handoff_metrics_v6.jsonl` | one row per handoff: control and re-read counts for arms E1 and P1 |
+| `results/exploratory-v6/protocol_v6.json`, `spend.json` | v6 rule and arm hashes, spend by arm |
 | `results/paper_expected.json` | every table cell as the paper prints it |
 | `results/paper_facts.json` | facts computed from the released files |
 | `results/headline-300/calibration.json` | token calibration for dry runs |
@@ -168,8 +173,9 @@ The metric files hold no model text. `uv run pytest -q` checks this on every fil
 | v4 | `docs/flip-protocol-v4-exploratory.md` | 706ed36 | exploratory: Tables 4 to 6 |
 | v5 | `docs/flip-protocol-v5-exploratory.md` | 52b6ee0 draft, 4b3d047 final | exploratory: Tables 7 to 12 |
 | v5b | `docs/flip-protocol-v5b-x2-rerun.md` | 042b810 | exploratory: X2b and judge v2 |
+| v6 | `docs/flip-protocol-v6-exploratory.md` | f89cd87 | exploratory: Table 13 |
 
-The commit ids belong to the private working repository. They are not in this repository's history.
+The commit ids refer to the development history. That history is not public.
 The documents and the sha256 hashes they freeze are here. The tests check that the prompts in source still hash to them.
 
 ## Spend
@@ -187,7 +193,9 @@ Local models cost nothing.
 | Exploratory v5, six arms | v5 | 2.13 |
 | X2b rerun | v5b | 0.60 |
 | Judge v2, local model | v5b | 0.00 |
+| Exploratory v6, two arms | v6 | 0.43 |
 
+The v6 run made 1,795 requests.
 The validity gate runs have no spend file.
 
 ## Vocabulary
@@ -198,7 +206,7 @@ They are frozen in the hashed prompts and templates. Changing them would need a 
 ## Cite
 
 ```
-FNU Ratnavarma. Position: Agents Must Know When Their Handoff Notes Change the Decision. [arXiv id pending], 2026.
+FNU Ratnavarma. When a Handoff Note Changes the Reader's Decision: An Empirical Study with Insertion, Rewording and Noise Controls. [arXiv id pending], 2026.
 ```
 
 ## License
