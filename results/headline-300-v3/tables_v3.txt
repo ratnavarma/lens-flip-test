@@ -1,0 +1,72 @@
+protocol 3. cases 300, complete True, a_H accuracy 96.7%, gate PASS, excluded from gated 10
+
+harmful gated = wrong commit + abstention + parse error (a_H right, a_V wrong)
+denominators per cell: n_all 300 (every case), n_gated 290 (a_H == a_star). The rates below divide by n_gated. In the JSON rate_all divides by n_all and rate is its alias.
+cell            FCR gated rare %        FCR gated 1% %          harmful % (of gated n)    wrong commit % (of gated n)   abstention % (of gated n)    pe  restraint % caution %   searches  cap  calls  recall
+recent@500      90.0 [66.7, 100.0]      41.0 [2.1, 99.7]        81.0 [76.7, 85.5]         3.8 [1.7, 6.1]                77.2 [72.4, 81.8]             0  95.0        96.7             241   32   29.5    71.8
+recent@1000     50.0 [33.3, 65.1]       14.0 [4.7, 24.2]        66.2 [60.6, 71.4]         8.6 [5.6, 11.8]               57.6 [52.2, 63.1]             0  76.7        68.7             200   17   26.4    73.0
+recent@2000     21.7 [11.7, 31.2]       14.3 [7.9, 22.1]        42.4 [36.7, 47.6]         9.3 [5.9, 12.7]               33.1 [27.6, 38.2]             0  73.3        42.0             130   12   25.2    71.7
+rag-bm25@500    29.9 [20.9, 38.8]       40.6 [32.3, 50.2]       42.1 [36.2, 47.8]         25.9 [21.0, 30.5]             16.2 [12.0, 20.7]             0  61.7        22.0             130   18   26.6    23.1
+rag-bm25@1000   27.3 [18.3, 36.7]       49.0 [40.2, 57.2]       43.8 [37.8, 49.5]         29.0 [23.9, 34.1]             14.8 [10.8, 19.1]             0  65.0        16.7             133    9   23.3    22.6
+rag-bm25@2000   20.7 [12.7, 28.6]       31.8 [23.9, 39.6]       29.7 [24.2, 34.8]         21.4 [16.6, 26.0]             8.3 [5.2, 11.5]               0  68.3        7.3               93    8   23.1    19.0
+rag-embed@500   71.4 [53.8, 88.6]       0.3 [0.2, 0.5]          61.4 [55.7, 66.8]         6.9 [4.1, 9.7]                54.5 [48.6, 60.1]             0  81.7        58.0             186   46   29.6    63.6
+rag-embed@1000  66.7 [51.3, 80.6]       4.6 [1.1, 9.1]          50.3 [44.6, 56.1]         11.0 [7.5, 15.3]              39.3 [33.7, 44.7]             0  78.3        35.3             156   28   26.3    65.3
+rag-embed@2000  48.6 [36.1, 60.3]       7.5 [3.5, 12.6]         35.9 [30.2, 41.6]         14.8 [11.1, 19.2]             21.0 [16.4, 25.8]             0  61.7        14.7             111   11   20.6    61.8
+summary@500     66.7 [50.0, 82.8]       38.5 [17.6, 60.8]       77.9 [73.3, 82.4]         9.7 [6.6, 13.2]               68.3 [63.2, 73.6]             0  75.0        84.7             234   46   28.6    59.3
+summary@1000    43.6 [27.3, 60.5]       25.3 [10.6, 43.0]       70.7 [65.4, 75.9]         8.3 [5.3, 11.3]               62.4 [57.1, 68.2]             0  78.3        80.0             213   36   27.2    61.0
+summary@2000    27.9 [17.6, 38.3]       12.7 [5.5, 21.0]        51.0 [45.3, 56.8]         9.3 [6.2, 12.8]               41.7 [36.2, 47.3]             0  68.3        56.7             155   27   28.1    54.5
+
+residue at B = 1000
+power rule per hypothesis: H2a at least 20 eligible cases; H2b at least 20 of its own residue flips; H2c at least 20 residue flips and 20 non-flips. Below the minimum: descriptive, bounds only.
+system       eligible  flips  residue %             floor %               trunc %               H2a diff %            
+pooled            490    142  29.0 [24.8, 33.2]     10.4 [7.8, 13.3]      65.5 [58.8, 72.3]     18.6 [14.2, 23.3]     
+recent             98     21  21.4 [13.5, 29.5]     6.1 [2.0, 11.1]       58.2 [48.4, 67.7]     15.3 [6.4, 24.0]      
+rag-bm25          163     47  28.8 [22.2, 35.5]     10.4 [6.1, 15.2]      76.7 [69.9, 83.1]     18.4 [10.9, 26.2]     
+rag-embed         144     39  27.1 [19.7, 34.4]     9.0 [4.7, 14.1]       69.4 [61.8, 76.7]     18.1 [10.2, 25.8]     
+summary            85     35  41.2 [30.3, 52.9]     17.6 [10.4, 26.2]     45.9 [35.5, 57.3]     23.5 [10.5, 36.4]     
+
+pooled H2a: n=490 eligible, needs 20 -> supported; diff 18.6 [14.2, 23.3]
+pooled H2b: n=10 residue flips, needs 20 -> descriptive (residue flips 10 below the minimum 20; bounds only, no claim); recall 15.0 [0.0, 37.5] random 7.8 [4.2, 13.7] diff 7.2 [-10.6, 31.1]
+pooled H2c: positives 142 (needs 20), negatives 348 (needs 20) -> supported; AUROC 0.64 [0.59, 0.69] vs omission 0.49 [0.48, 0.50], p_residue parse errors 0
+
+recent H2a: n=98 eligible, needs 20 -> supported; diff 15.3 [6.4, 24.0]
+recent H2b: n=0 residue flips, needs 20 -> descriptive (residue flips 0 below the minimum 20; bounds only, no claim); recall - random - diff -
+recent H2c: positives 21 (needs 20), negatives 77 (needs 20) -> fails; AUROC 0.58 [0.48, 0.69] vs omission 0.50 [0.50, 0.50], p_residue parse errors 0
+
+rag-bm25 H2a: n=163 eligible, needs 20 -> supported; diff 18.4 [10.9, 26.2]
+rag-bm25 H2b: n=9 residue flips, needs 20 -> descriptive (residue flips 9 below the minimum 20; bounds only, no claim); recall 5.6 [0.0, 16.7] random 8.0 [4.1, 14.2] diff -2.5 [-13.6, 11.6]
+rag-bm25 H2c: positives 47 (needs 20), negatives 116 (needs 20) -> supported; AUROC 0.71 [0.63, 0.77] vs omission 0.50 [0.50, 0.50], p_residue parse errors 0
+
+rag-embed H2a: n=144 eligible, needs 20 -> supported; diff 18.1 [10.2, 25.8]
+rag-embed H2b: n=1 residue flips, needs 20 -> descriptive (residue flips 1 below the minimum 20; bounds only, no claim); recall 100.0 [100.0, 100.0] random 6.2 [6.2, 6.2] diff 93.8 [93.8, 93.8]
+rag-embed H2c: positives 39 (needs 20), negatives 105 (needs 20) -> supported; AUROC 0.71 [0.63, 0.80] vs omission 0.50 [0.50, 0.50], p_residue parse errors 0
+
+summary H2a: n=85 eligible, needs 20 -> supported; diff 23.5 [10.5, 36.4]
+summary H2b: not defined for text views
+summary H2c: positives 35 (needs 20), negatives 50 (needs 20) -> fails; AUROC 0.37 [0.27, 0.49] vs omission 0.48 [0.43, 0.52], p_residue parse errors 0
+
+H2b funnel (pooled): 107 residue flips on event views, 22 with every D* event in V, 10 with a restored search
+
+recoverability of residue flips (the flip search over the units of V missing from the note)
+system       flips  restored 1-minimal    restored cap hit    not recoverable     
+pooled         142  40 (28.2%)            1 (0.7%)            101 (71.1%)         
+recent          21  5 (23.8%)             1 (4.8%)            15 (71.4%)          
+rag-bm25        47  17 (36.2%)            0 (0.0%)            30 (63.8%)          
+rag-embed       39  10 (25.6%)            0 (0.0%)            29 (74.4%)          
+summary         35  8 (22.9%)             0 (0.0%)            27 (77.1%)          
+restored, 1-minimal: putting back the omitted units restores the right action, and no unit of the set can be dropped.
+restored, cap hit: restored, but the search stopped at the call cap, so the set may not be minimal.
+not recoverable: adding back every omitted unit does not restore the right action, so the flip is not explained by omission alone, and the note's own wording or framing may cause it.
+
+not recoverable flips, descriptive only, no claim: how often B's action matches the truncation action and how often B chose REQUEST_INFO
+system           n  B = truncation action   B = REQUEST_INFO    
+pooled         101  66 (65.3%)              75 (74.3%)          
+recent          15  8 (53.3%)               8 (53.3%)           
+rag-bm25        30  17 (56.7%)              20 (66.7%)          
+rag-embed       29  25 (86.2%)              27 (93.1%)          
+summary         27  16 (59.3%)              20 (74.1%)          
+
+merge: 270 cases kept from results/headline-300, 30 U2 cases from results/headline-u2-v3 in place of 30 U2 cases
+U2 a_H on the full history: replaced cases 21/30, replacement cases 28/30
+base run actual spend $27.9506 over 34 rounds (the base figure includes the replaced cases)
+replacement run actual spend $1.6620 over 29 rounds (the base figure includes the replaced cases)

@@ -1,0 +1,90 @@
+{
+  "arms": {
+    "adaptive-high": {
+      "confusion": {
+        "APPLY_CREDIT": {
+          "APPLY_CREDIT": 10
+        },
+        "CHECK_DEVICE": {
+          "CHECK_DEVICE": 10
+        },
+        "EXPLAIN": {
+          "EXPLAIN": 9,
+          "REQUEST_INFO": 1
+        },
+        "OPEN_REVIEW": {
+          "OPEN_REVIEW": 10
+        },
+        "REQUEST_INFO": {
+          "OPEN_REVIEW": 3,
+          "REQUEST_INFO": 17
+        }
+      },
+      "cost": {
+        "input_tokens": 595385,
+        "output_tokens": 61381,
+        "usd": 0.045115
+      },
+      "overall": {
+        "accuracy": 0.9333333333333333,
+        "correct": 56,
+        "n": 60
+      },
+      "parse_errors": {
+        "by_reason": {},
+        "total": 0
+      },
+      "passes_gate": true,
+      "per_length": {
+        "100": {
+          "accuracy": 1.0,
+          "correct": 30,
+          "n": 30
+        },
+        "400": {
+          "accuracy": 0.8666666666666667,
+          "correct": 26,
+          "n": 30
+        }
+      },
+      "per_mechanism": {
+        "M0": {
+          "accuracy": 0.9,
+          "correct": 9,
+          "n": 10
+        },
+        "M1": {
+          "accuracy": 1.0,
+          "correct": 10,
+          "n": 10
+        },
+        "M2": {
+          "accuracy": 1.0,
+          "correct": 10,
+          "n": 10
+        },
+        "M3": {
+          "accuracy": 1.0,
+          "correct": 10,
+          "n": 10
+        },
+        "U1": {
+          "accuracy": 0.9,
+          "correct": 9,
+          "n": 10
+        },
+        "U2": {
+          "accuracy": 0.8,
+          "correct": 8,
+          "n": 10
+        }
+      }
+    }
+  },
+  "gate": {
+    "overall_min": 0.9,
+    "per_mechanism_min": 0.8
+  },
+  "model": "claude-haiku-5-5",
+  "total_cost_usd": 0.045115
+}

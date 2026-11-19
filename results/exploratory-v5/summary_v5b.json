@@ -1,0 +1,387 @@
+{
+ "X2b_structured_fit": {
+  "arm": "X2b",
+  "auroc_minus_v3_auroc": {
+   "bounds": "below zero",
+   "ci95": [
+    -0.215866,
+    -0.114233
+   ],
+   "diff": -0.16808262747153901,
+   "n": 490
+  },
+  "auroc_minus_x2_auroc": {
+   "bounds": "above zero",
+   "ci95": [
+    0.047919,
+    0.151547
+   ],
+   "diff": 0.0988009003832932,
+   "n": 490
+  },
+  "by_system": {
+   "rag-bm25": {
+    "ci95": [
+     0.41358,
+     0.568193
+    ],
+    "k": 80,
+    "n": 163,
+    "value": 0.49079754601226994
+   },
+   "rag-embed": {
+    "ci95": [
+     0.312965,
+     0.471429
+    ],
+    "k": 57,
+    "n": 144,
+    "value": 0.3958333333333333
+   },
+   "recent": {
+    "ci95": [
+     0.32934,
+     0.52184
+    ],
+    "k": 42,
+    "n": 98,
+    "value": 0.42857142857142855
+   },
+   "summary": {
+    "ci95": [
+     0.297833,
+     0.50589
+    ],
+    "k": 34,
+    "n": 85,
+    "value": 0.4
+   }
+  },
+  "h2c_auroc_p": {
+   "auroc": 0.4685937526482602,
+   "ci95": [
+    0.42318,
+    0.516599
+   ],
+   "diff_vs_half_ci95": [
+    -0.07682,
+    0.016599
+   ],
+   "n": 490,
+   "n_neg": 277,
+   "n_pos": 213,
+   "powered_20_20": true
+  },
+  "h2c_auroc_p_v3": {
+   "auroc": 0.6366763801197992,
+   "ci95": [
+    0.588721,
+    0.686772
+   ],
+   "diff_vs_half_ci95": [
+    0.088721,
+    0.186772
+   ],
+   "n": 490,
+   "n_neg": 348,
+   "n_pos": 142,
+   "powered_20_20": true
+  },
+  "n": 490,
+  "notes": {
+   "mean_tokens": 108.27142857142857,
+   "p_missing": 0,
+   "status": {
+    "ok": 490
+   }
+  },
+  "recoverable_minus_floor_v3": {
+   "bounds": "includes zero",
+   "ci95": [
+    -0.044626,
+    0.031942
+   ],
+   "diff": -0.006122448979591836,
+   "k_a": 48,
+   "k_b": 51,
+   "n": 490
+  },
+  "recoverable_minus_v3_recoverable": {
+   "bounds": "includes zero",
+   "ci95": [
+    -0.020451,
+    0.04941
+   ],
+   "diff": 0.014285714285714285,
+   "k_a": 48,
+   "k_b": 41,
+   "n": 490
+  },
+  "recoverable_minus_x2_recoverable": {
+   "bounds": "below zero",
+   "ci95": [
+    -0.102003,
+    -0.019905
+   ],
+   "diff": -0.05918367346938776,
+   "k_a": 48,
+   "k_b": 77,
+   "n": 490
+  },
+  "recoverable_rate": {
+   "ci95": [
+    0.072604,
+    0.124243
+   ],
+   "k": 48,
+   "n": 490,
+   "value": 0.09795918367346938
+  },
+  "residue_minus_v3": {
+   "bounds": "above zero",
+   "ci95": [
+    0.100165,
+    0.19162
+   ],
+   "diff": 0.14489795918367346,
+   "k_a": 213,
+   "k_b": 142,
+   "n": 490
+  },
+  "residue_minus_x2": {
+   "bounds": "below zero",
+   "ci95": [
+    -0.223341,
+    -0.132546
+   ],
+   "diff": -0.17551020408163265,
+   "k_a": 213,
+   "k_b": 299,
+   "n": 490
+  },
+  "residue_rate": {
+   "ci95": [
+    0.377905,
+    0.492897
+   ],
+   "k": 213,
+   "n": 490,
+   "value": 0.4346938775510204
+  },
+  "search_outcomes": {
+   "not_recoverable_by_insertion": 165,
+   "restored": 48
+  },
+  "structure": {
+   "cut_gate": {
+    "cut_share": 0.0,
+    "max_share": 0.1,
+    "n": 490,
+    "n_cut": 0,
+    "readable": true,
+    "rule": "X2b is readable only if at most 10 in 100 rendered notes are cut at 150 tokens"
+   },
+   "first_form_fits": 490,
+   "first_form_tokens": {
+    "max": 136,
+    "mean": 108.27142857142857,
+    "median": 110
+   },
+   "first_status": {
+    "ok": 490
+   },
+   "note_tokens": {
+    "max": 136,
+    "mean": 108.27142857142857,
+    "median": 110,
+    "p90": 124
+   },
+   "notes_cut_at_150": 0,
+   "notes_with_an_empty_field": 67,
+   "reask_fits": 0,
+   "reasked": 0,
+   "replies_with_all_three_fields": 490,
+   "second_status": {},
+   "used_second": 0
+  },
+  "v3_recoverable_rate": {
+   "ci95": [
+    0.059253,
+    0.110644
+   ],
+   "k": 41,
+   "n": 490,
+   "value": 0.0836734693877551
+  },
+  "v3_residue_rate": {
+   "ci95": [
+    0.248031,
+    0.331933
+   ],
+   "k": 142,
+   "n": 490,
+   "value": 0.2897959183673469
+  },
+  "x2_reference": {
+   "h2c_auroc_p": {
+    "auroc": 0.369792852264967,
+    "ci95": [
+     0.327427,
+     0.417147
+    ],
+    "diff_vs_half_ci95": [
+     -0.172573,
+     -0.082853
+    ],
+    "n": 490,
+    "n_neg": 191,
+    "n_pos": 299,
+    "powered_20_20": true
+   },
+   "mean_tokens": 148.40408163265306,
+   "notes_cut_at_150": 477,
+   "recoverable_rate": {
+    "ci95": [
+     0.124486,
+     0.193757
+    ],
+    "k": 77,
+    "n": 490,
+    "value": 0.15714285714285714
+   },
+   "residue_rate": {
+    "ci95": [
+     0.543813,
+     0.675401
+    ],
+    "k": 299,
+    "n": 490,
+    "value": 0.610204081632653
+   }
+  }
+ },
+ "bootstrap": {
+  "reps": 1000,
+  "seed": 11,
+  "unit": "case (paired; every handoff of a resampled case)"
+ },
+ "denominators": {
+  "by_system": {
+   "rag-bm25": 163,
+   "rag-embed": 144,
+   "recent": 98,
+   "summary": 85
+  },
+  "cases": 300,
+  "eligible_handoffs": 490,
+  "v3_residue_flips": 142
+ },
+ "exploratory": true,
+ "note": "Exploratory addendum to v5. No result here changes a v3, v4 or v5 number.",
+ "protocol": {
+  "addendum_to": "protocol_v5.json",
+  "arm_config_sha256": "4dd8c2ed838399db9bbcbd8523297644eb96930f4962fb3559701e7e2f9e7531",
+  "cases_sha256": "432e55ca579b74766e9097428fe513bd5a8c96496892dec1b023365ba1a4ed3c",
+  "doc": "docs/flip-protocol-v5b-x2-rerun.md",
+  "finalized_at": "2026-10-30 03:11 UTC",
+  "frame_sha256": "bed6b1d00288354439f4a0459dc7d512cfc83245b369a141e9e4f1a88f6eb69f",
+  "frozen_at": "2026-10-30 03:11 UTC",
+  "prompt_sha256": {
+   "x5b.x2b.prompt_first": "438747015615b1123e293e8efd5cf28c93092116e2800ba1f2887d124286a187",
+   "x5b.x2b.prompt_tight": "20093b63adccf3f068b1c3fbd89a1f346ba8dfb4f21e5983b0ec51ef33bc2e28",
+   "x5b.x2b.render": "191a10a1761aa6b9a34a699b155ae332c9022d626842cc575c9507b788f429d5",
+   "x5b.x2b.rule": "8c59b45dfffac3f7a8084bd3926fd06d1cb697c17b960edb763a26f911d3d4e4",
+   "x5b.x2b.schema": "c7ccff819ff29e0648574be4829337cda3a715fa1f6bb142368da2e44abe2138"
+  },
+  "status": "FINAL"
+ },
+ "schema": "lens.flip.exploratory/1",
+ "spend": {
+  "dryrun_likely_usd": 0.8951,
+  "ledger_by_arm": {
+   "C1": 0.151009,
+   "C2": 0.116469,
+   "C3": 0.438721,
+   "C4": 0.274651,
+   "X1": 0.268551,
+   "X2": 0.875708,
+   "X2b": 0.595973
+  },
+  "ledger_cap_usd": 30.0,
+  "ledger_remaining_usd": 27.278918,
+  "ledger_total_usd": 2.721082,
+  "x2b_by_stage": {
+   "residue_flip": {
+    "input_tokens": 1313500,
+    "output_tokens": 861284,
+    "requests": 1023,
+    "usd": 0.280996
+   },
+   "residue_flip_verify": {
+    "input_tokens": 47110,
+    "output_tokens": 38711,
+    "requests": 48,
+    "usd": 0.012033
+   },
+   "x2b_A": {
+    "input_tokens": 836156,
+    "output_tokens": 686337,
+    "requests": 490,
+    "usd": 0.213392
+   },
+   "x2b_B": {
+    "input_tokens": 404909,
+    "output_tokens": 277225,
+    "requests": 490,
+    "usd": 0.089552
+   }
+  },
+  "x2b_requests": 2051,
+  "x2b_usd": 0.595973
+ },
+ "v3_reference": {
+  "floor_rate": {
+   "ci95": [
+    0.077552,
+    0.132797
+   ],
+   "k": 51,
+   "n": 490,
+   "value": 0.10408163265306122
+  },
+  "h2c_auroc": {
+   "auroc": 0.6366763801197992,
+   "ci95": [
+    0.588721,
+    0.686772
+   ],
+   "diff_vs_half_ci95": [
+    0.088721,
+    0.186772
+   ],
+   "n": 490,
+   "n_neg": 348,
+   "n_pos": 142,
+   "powered_20_20": true
+  },
+  "recoverable_rate": {
+   "ci95": [
+    0.059253,
+    0.110644
+   ],
+   "k": 41,
+   "n": 490,
+   "value": 0.0836734693877551
+  },
+  "residue_rate": {
+   "ci95": [
+    0.248031,
+    0.331933
+   ],
+   "k": 142,
+   "n": 490,
+   "value": 0.2897959183673469
+  }
+ },
+ "version": "5b-exploratory"
+}

@@ -1,0 +1,49 @@
+{
+ "band": {
+  "tau_high": 0.8833566832282638,
+  "tau_low": 0.6544830554817778
+ },
+ "calibration_set": {
+  "by_kind": {
+   "deleted_sentence": 60,
+   "inserted_paraphrase": 60,
+   "inserted_verbatim": 60,
+   "natural_absent": 80,
+   "natural_present": 80,
+   "same_topic_distractor": 60
+  },
+  "n": 400,
+  "seed": "x5-judge2",
+  "sha256": "4eb8492b4cc57dec8aeedf26141797691c9cfbf2a9289944570688dcaec60fa7"
+ },
+ "embedding_tau": 0.7579056462471596,
+ "format": {
+  "properties": {
+   "conveyed": {
+    "type": "boolean"
+   },
+   "quote": {
+    "type": "string"
+   }
+  },
+  "required": [
+   "quote",
+   "conveyed"
+  ],
+  "type": "object"
+ },
+ "options": {
+  "num_ctx": 4096,
+  "num_predict": 160,
+  "seed": 0,
+  "temperature": 0,
+  "think": false
+ },
+ "pass_bar": {
+  "absent_rate_real_below": 0.75,
+  "balanced_accuracy_min": 0.85
+ },
+ "prompt_sha256": "8d8573056bccddf86a558d5971f60b987844ad4313568c51e8b2a84bf080d065",
+ "prompt_version": "c4-judge-v2",
+ "schema": "lens.flip.exploratory/1"
+}

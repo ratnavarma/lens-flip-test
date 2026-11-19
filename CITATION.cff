@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the paper below."
+title: "LENS Decision Flip Test"
+type: software
+authors:
+  - family-names: "Ratnavarma"
+    given-names: "FNU"
+license: Apache-2.0
+repository-code: "https://github.com/ratnavarma/lens-flip-test"
+preferred-citation:
+  type: article
+  title: "TITLE_TBD"
+  authors:
+    - family-names: "Ratnavarma"
+      given-names: "FNU"
+  year: 2026

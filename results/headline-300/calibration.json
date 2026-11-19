@@ -1,0 +1,43 @@
+{
+ "calibrated_from_run": "results/headline-pilot60",
+ "calls": 0,
+ "calls_this_run": 0,
+ "count_tokens_fields_dropped": [],
+ "kinds": {
+  "decide": {
+   "chars_per_token_high": 2.7964071856287425,
+   "chars_per_token_low": 1.9019805757891086,
+   "chars_per_token_mean": 2.1906973590252776,
+   "intercept": -132.2891131685069,
+   "mean_abs_rel_error": 0.023211941073334286,
+   "n": 12389,
+   "overhead_tokens": 331,
+   "slope": 0.4759126133975066,
+   "usage_chars_per_token": 1.9797715258638324
+  },
+  "note": {
+   "chars_per_token_high": 2.687199230028874,
+   "chars_per_token_low": 2.1124942263279447,
+   "chars_per_token_mean": 2.4654388065199373,
+   "intercept": -425.6549695578435,
+   "mean_abs_rel_error": 0.03670132357411029,
+   "n": 96,
+   "overhead_tokens": 331,
+   "slope": 0.5582390579689116,
+   "usage_chars_per_token": 1.9073137369448443
+  },
+  "summary": {
+   "chars_per_token_high": 2.539124192390524,
+   "chars_per_token_low": 1.914516751024343,
+   "chars_per_token_mean": 2.2785443323820536,
+   "intercept": -231.20320678289954,
+   "mean_abs_rel_error": 0.019764349396115485,
+   "n": 1170,
+   "overhead_tokens": 331,
+   "slope": 0.480376750191538,
+   "usage_chars_per_token": 2.006863962748516
+  }
+ },
+ "notes": [],
+ "overhead_note": "input tokens = usage of the finished run; tokens minus 331 fitted on characters"
+}

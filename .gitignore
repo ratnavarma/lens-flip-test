@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
+data/
+runs/
+banned_words.local.txt
+# Run outputs are local, except the released summary and metric files.
+results/*
+!results/headline-300-v3/
+!results/exploratory-v4/
+!results/exploratory-v5/
+!results/validity-haiku-v4/
+!results/headline-300/
+!results/paper_expected.json
+!results/paper_facts.json
+# Raw runs hold model text. They are never released, even inside a released directory.
+results/**/state/
+results/**/rounds/
+results/**/*.sqlite
+results/**/*.log

@@ -1,0 +1,330 @@
+{
+ "arms": {
+  "A-extractive": {
+   "actual_usd": 0.768995,
+   "by_stage": {
+    "residue_flip": {
+     "input_tokens": 2129582,
+     "output_tokens": 1622199,
+     "requests": 1839,
+     "usd": 0.512029
+    },
+    "residue_flip_verify": {
+     "input_tokens": 141340,
+     "output_tokens": 104945,
+     "requests": 144,
+     "usd": 0.033303
+    },
+    "x_A": {
+     "input_tokens": 879979,
+     "output_tokens": 357911,
+     "requests": 490,
+     "usd": 0.133477
+    },
+    "x_B": {
+     "input_tokens": 396838,
+     "output_tokens": 281377,
+     "requests": 474,
+     "usd": 0.090186
+    }
+   },
+   "input_tokens": 3547739,
+   "output_tokens": 2366432,
+   "rounds": [
+    {
+     "actual_usd": 0.133477,
+     "by_stage": {
+      "x_A": 490
+     },
+     "likely_usd": 0.207701,
+     "n_requests": 490,
+     "round": 1,
+     "upper_bound_usd": 0.783451
+    },
+    {
+     "actual_usd": 0.090186,
+     "by_stage": {
+      "x_B": 474
+     },
+     "likely_usd": 0.138173,
+     "n_requests": 474,
+     "round": 2,
+     "upper_bound_usd": 0.735375
+    },
+    {
+     "actual_usd": 0.06654,
+     "by_stage": {
+      "residue_flip": 193
+     },
+     "likely_usd": 0.065094,
+     "n_requests": 193,
+     "round": 3,
+     "upper_bound_usd": 0.309184
+    },
+    {
+     "actual_usd": 0.083497,
+     "by_stage": {
+      "residue_flip": 284,
+      "residue_flip_verify": 2
+     },
+     "likely_usd": 0.090011,
+     "n_requests": 286,
+     "round": 4,
+     "upper_bound_usd": 0.451044
+    },
+    {
+     "actual_usd": 0.110246,
+     "by_stage": {
+      "residue_flip": 380,
+      "residue_flip_verify": 1
+     },
+     "likely_usd": 0.117827,
+     "n_requests": 381,
+     "round": 5,
+     "upper_bound_usd": 0.598565
+    },
+    {
+     "actual_usd": 0.080495,
+     "by_stage": {
+      "residue_flip": 302,
+      "residue_flip_verify": 13
+     },
+     "likely_usd": 0.095048,
+     "n_requests": 315,
+     "round": 6,
+     "upper_bound_usd": 0.492262
+    },
+    {
+     "actual_usd": 0.086267,
+     "by_stage": {
+      "residue_flip": 334,
+      "residue_flip_verify": 12
+     },
+     "likely_usd": 0.103622,
+     "n_requests": 346,
+     "round": 7,
+     "upper_bound_usd": 0.539843
+    },
+    {
+     "actual_usd": 0.064184,
+     "by_stage": {
+      "residue_flip": 208,
+      "residue_flip_verify": 45
+     },
+     "likely_usd": 0.075401,
+     "n_requests": 253,
+     "round": 8,
+     "upper_bound_usd": 0.394334
+    },
+    {
+     "actual_usd": 0.03429,
+     "by_stage": {
+      "residue_flip": 92,
+      "residue_flip_verify": 41
+     },
+     "likely_usd": 0.039596,
+     "n_requests": 133,
+     "round": 9,
+     "upper_bound_usd": 0.207251
+    },
+    {
+     "actual_usd": 0.011348,
+     "by_stage": {
+      "residue_flip": 20,
+      "residue_flip_verify": 23
+     },
+     "likely_usd": 0.012828,
+     "n_requests": 43,
+     "round": 10,
+     "upper_bound_usd": 0.067035
+    },
+    {
+     "actual_usd": 0.005214,
+     "by_stage": {
+      "residue_flip": 18,
+      "residue_flip_verify": 2
+     },
+     "likely_usd": 0.006008,
+     "n_requests": 20,
+     "round": 11,
+     "upper_bound_usd": 0.031225
+    },
+    {
+     "actual_usd": 0.002104,
+     "by_stage": {
+      "residue_flip": 6,
+      "residue_flip_verify": 2
+     },
+     "likely_usd": 0.002395,
+     "n_requests": 8,
+     "round": 12,
+     "upper_bound_usd": 0.012481
+    },
+    {
+     "actual_usd": 0.000957,
+     "by_stage": {
+      "residue_flip": 2,
+      "residue_flip_verify": 2
+     },
+     "likely_usd": 0.001195,
+     "n_requests": 4,
+     "round": 13,
+     "upper_bound_usd": 0.006238
+    },
+    {
+     "actual_usd": 0.000189,
+     "by_stage": {
+      "residue_flip_verify": 1
+     },
+     "likely_usd": 0.000299,
+     "n_requests": 1,
+     "round": 14,
+     "upper_bound_usd": 0.001559
+    }
+   ]
+  },
+  "A-stripped": {
+   "actual_usd": 0.068878,
+   "by_stage": {
+    "a_B_stripped": {
+     "input_tokens": 344394,
+     "output_tokens": 206632,
+     "requests": 418,
+     "usd": 0.068878
+    }
+   },
+   "input_tokens": 344394,
+   "output_tokens": 206632,
+   "rounds": [
+    {
+     "actual_usd": 0.068878,
+     "by_stage": {
+      "a_B_stripped": 418
+     },
+     "likely_usd": 0.121933,
+     "n_requests": 418,
+     "round": 1,
+     "upper_bound_usd": 0.648589
+    }
+   ]
+  },
+  "B-sonnet": {
+   "actual_usd": 1.187597,
+   "by_stage": {
+    "s_B": {
+     "input_tokens": 416382,
+     "output_tokens": 154243,
+     "requests": 490,
+     "usd": 1.187597
+    }
+   },
+   "input_tokens": 416382,
+   "output_tokens": 154243,
+   "rounds": [
+    {
+     "actual_usd": 1.187597,
+     "by_stage": {
+      "s_B": 490
+     },
+     "likely_usd": 4.098018,
+     "n_requests": 490,
+     "round": 1,
+     "upper_bound_usd": 15.222004
+    }
+   ]
+  },
+  "B-sonnet-view": {
+   "actual_usd": 2.075756,
+   "by_stage": {
+    "s_view": {
+     "input_tokens": 855756,
+     "output_tokens": 244000,
+     "requests": 490,
+     "usd": 2.075756
+    }
+   },
+   "input_tokens": 855756,
+   "output_tokens": 244000,
+   "rounds": [
+    {
+     "actual_usd": 2.075756,
+     "by_stage": {
+      "s_view": 490
+     },
+     "likely_usd": 4.541445,
+     "n_requests": 490,
+     "round": 1,
+     "upper_bound_usd": 15.711832
+    }
+   ]
+  },
+  "C-budget": {
+   "actual_usd": 0.622338,
+   "by_stage": {
+    "c_A300": {
+     "input_tokens": 721986,
+     "output_tokens": 672956,
+     "requests": 490,
+     "usd": 0.204338
+    },
+    "c_A600": {
+     "input_tokens": 722476,
+     "output_tokens": 729622,
+     "requests": 490,
+     "usd": 0.218529
+    },
+    "c_B300": {
+     "input_tokens": 474435,
+     "output_tokens": 283190,
+     "requests": 490,
+     "usd": 0.094519
+    },
+    "c_B600": {
+     "input_tokens": 556101,
+     "output_tokens": 308585,
+     "requests": 490,
+     "usd": 0.104951
+    }
+   },
+   "input_tokens": 2474998,
+   "output_tokens": 1994353,
+   "rounds": [
+    {
+     "actual_usd": 0.422868,
+     "by_stage": {
+      "c_A300": 490,
+      "c_A600": 490
+     },
+     "likely_usd": 0.45553,
+     "n_requests": 980,
+     "round": 1,
+     "upper_bound_usd": 1.55803
+    },
+    {
+     "actual_usd": 0.199471,
+     "by_stage": {
+      "c_B300": 490,
+      "c_B600": 490
+     },
+     "likely_usd": 0.300118,
+     "n_requests": 980,
+     "round": 2,
+     "upper_bound_usd": 1.536356
+    }
+   ]
+  }
+ },
+ "cap_usd": 30.0,
+ "probes": [
+  {
+   "input_tokens": 855,
+   "output_tokens": 521,
+   "usd": 0.00692,
+   "what": "sonnet sync probe (1 call, list price)"
+  }
+ ],
+ "probes_usd": 0.00692,
+ "remaining_usd": 25.269516,
+ "total_usd": 4.730484,
+ "updated_at": "2026-10-27 01:18:48 UTC"
+}

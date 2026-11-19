@@ -1,0 +1,38 @@
+{
+  "addendum_to": "protocol_v5.json",
+  "approval": "Varma, 2026-10-29: rerun X2 with a form that fits the budget, about $1, inside the $30 cap",
+  "arm": "X2b",
+  "arm_config": "4dd8c2ed838399db9bbcbd8523297644eb96930f4962fb3559701e7e2f9e7531",
+  "calibration_sha256": "0e12af21a05647a9dae122af69b80704673d847bd63c94c510724d9e68da4f1f",
+  "cases_sha256": "432e55ca579b74766e9097428fe513bd5a8c96496892dec1b023365ba1a4ed3c",
+  "doc": "docs/flip-protocol-v5b-x2-rerun.md",
+  "dryrun": {
+    "at": "2026-10-30 03:11:09 UTC",
+    "likely_usd": 0.8951,
+    "upper_usd": 17.5635
+  },
+  "finalized_at": "2026-10-30 03:11 UTC",
+  "frame_sha256": "bed6b1d00288354439f4a0459dc7d512cfc83245b369a141e9e4f1a88f6eb69f",
+  "frozen_at": "2026-10-30 03:11 UTC",
+  "prompts": {
+    "x5b.x2b.prompt_first": "438747015615b1123e293e8efd5cf28c93092116e2800ba1f2887d124286a187",
+    "x5b.x2b.prompt_tight": "20093b63adccf3f068b1c3fbd89a1f346ba8dfb4f21e5983b0ec51ef33bc2e28",
+    "x5b.x2b.render": "191a10a1761aa6b9a34a699b155ae332c9022d626842cc575c9507b788f429d5",
+    "x5b.x2b.rule": "8c59b45dfffac3f7a8084bd3926fd06d1cb697c17b960edb763a26f911d3d4e4",
+    "x5b.x2b.schema": "c7ccff819ff29e0648574be4829337cda3a715fa1f6bb142368da2e44abe2138"
+  },
+  "protocol_v5_sha256": "4356cf459a2920dbac89afdc1c0aad3cc0cc6cefffd6eec202255aebd81b6032",
+  "reused_v3": {
+    "decider.action_schema": "b5c809762c595781e481572d7b6ead5fb9ef9a4afa1e2afcae093ca81a69efbb",
+    "decider.v1": "f0828f379ef244779cec7c9e8fd2260b23b53f9da81cfd35bf0a8c4dd3673f04",
+    "decider.v1.inserted": "74be01664a51887455a9445a08edbf8eae8c1f75b9a34db9d924a1b9d9b5a8d0",
+    "decider.v2": "afa9c09a90ae59bfc1f92e858bc5d9d34125298c17c0bd74c1bfa70c9b9d718b",
+    "event_templates": "38f5302ef4a810a19679a838828c909cc0e1c753fd2676f6df5776c5af3ac919",
+    "file:render.py": "46567cebd52980297247f58f1c46ad315eac94ff3736427fe092bcb85dc6dfaf",
+    "note.prompt_p_residue": "d06b8aafacbcc2e16280c4e6ebd5069a2e5ec8baeb8e23a2e0829d435a08b6cd",
+    "note.schema": "23b194ce2295f649c6a2a17cdaedf6bccbc5ae05eda412d1d6a65c1af2ae88d0"
+  },
+  "schema": "lens.flip.exploratory/1",
+  "status": "FINAL",
+  "version": "5b-exploratory"
+}

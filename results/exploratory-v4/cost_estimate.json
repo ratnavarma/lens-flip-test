@@ -1,0 +1,237 @@
+{
+ "cap_usd": 30.0,
+ "ledger_total_at_last_estimate_usd": 2.654728,
+ "studies": {
+  "A-extractive": {
+   "arm": "A-extractive",
+   "assumed_output_tokens": {
+    "decide": 1000,
+    "extract": 1300,
+    "note_budget": 1500
+   },
+   "at": "2026-10-27 00:06:04 UTC",
+   "model": "claude-haiku-5-5",
+   "parts": [
+    {
+     "calls": 490.0,
+     "input_tokens_likely": 969027,
+     "input_tokens_upper": 969027,
+     "likely_usd": 0.2077,
+     "note": "",
+     "output_tokens_likely": 637000,
+     "output_tokens_upper": 2940000,
+     "stage": "extract (A)",
+     "upper_usd": 0.7835
+    },
+    {
+     "calls": 490.0,
+     "input_tokens_likely": 424830,
+     "input_tokens_upper": 524300,
+     "likely_usd": 0.1437,
+     "note": "note length assumed at the 150-token cap",
+     "output_tokens_likely": 490000,
+     "output_tokens_upper": 2940000,
+     "stage": "B on extractive note",
+     "upper_usd": 0.7612
+    },
+    {
+     "calls": 1176.0,
+     "input_tokens_likely": 2041985,
+     "input_tokens_upper": 2387026,
+     "likely_usd": 0.3961,
+     "note": "likely: 30% of handoffs flip, 8.0 calls per search (note + inserted units priced as V). Worst case is 490 x 49 calls; the per-round guard bounds it.",
+     "output_tokens_likely": 1176000,
+     "output_tokens_upper": 7056000,
+     "stage": "flip searches",
+     "upper_usd": 1.8834
+    }
+   ],
+   "rates_usd_per_million": {
+    "input": 0.05,
+    "output": 0.25
+   },
+   "total": {
+    "calls": 2156.0,
+    "input_tokens_likely": 3435842,
+    "input_tokens_upper": 3880353,
+    "likely_usd": 0.7475,
+    "output_tokens_likely": 2303000,
+    "output_tokens_upper": 12936000,
+    "upper_usd": 3.4281
+   }
+  },
+  "A-stripped": {
+   "arm": "A-stripped",
+   "assumed_output_tokens": {
+    "decide": 1000,
+    "extract": 1300,
+    "note_budget": 1500
+   },
+   "at": "2026-10-27 01:10:48 UTC",
+   "model": "claude-haiku-5-5",
+   "parts": [
+    {
+     "calls": 418.0,
+     "input_tokens_likely": 348655,
+     "input_tokens_upper": 431780,
+     "likely_usd": 0.1219,
+     "note": "418 of 490 notes change; unchanged notes keep the v3 answer",
+     "output_tokens_likely": 418000,
+     "output_tokens_upper": 2508000,
+     "stage": "B on stripped note (changed notes only)",
+     "upper_usd": 0.6486
+    }
+   ],
+   "rates_usd_per_million": {
+    "input": 0.05,
+    "output": 0.25
+   },
+   "total": {
+    "calls": 418.0,
+    "input_tokens_likely": 348655,
+    "input_tokens_upper": 431780,
+    "likely_usd": 0.1219,
+    "output_tokens_likely": 418000,
+    "output_tokens_upper": 2508000,
+    "upper_usd": 0.6486
+   }
+  },
+  "B-sonnet": {
+   "arm": "B-sonnet",
+   "assumed_output_tokens": {
+    "decide": 1500
+   },
+   "at": "2026-10-27 00:55:43 UTC",
+   "model": "claude-sonnet-5-5",
+   "parts": [
+    {
+     "calls": 490.0,
+     "input_tokens_likely": 423018,
+     "input_tokens_upper": 522004,
+     "likely_usd": 4.098,
+     "note": "",
+     "output_tokens_likely": 735000,
+     "output_tokens_upper": 2940000,
+     "stage": "Sonnet B on v3 note",
+     "upper_usd": 15.222
+    }
+   ],
+   "rates_usd_per_million": {
+    "input": 1.0,
+    "output": 5.0
+   },
+   "total": {
+    "calls": 490.0,
+    "input_tokens_likely": 423018,
+    "input_tokens_upper": 522004,
+    "likely_usd": 4.098,
+    "output_tokens_likely": 735000,
+    "output_tokens_upper": 2940000,
+    "upper_usd": 15.222
+   }
+  },
+  "B-sonnet-view": {
+   "arm": "B-sonnet-view",
+   "assumed_output_tokens": {
+    "decide": 1500
+   },
+   "at": "2026-10-27 01:14:44 UTC",
+   "model": "claude-sonnet-5-5",
+   "parts": [
+    {
+     "calls": 490.0,
+     "input_tokens_likely": 866445,
+     "input_tokens_upper": 1011832,
+     "likely_usd": 4.5414,
+     "note": "",
+     "output_tokens_likely": 735000,
+     "output_tokens_upper": 2940000,
+     "stage": "Sonnet on V (v2)",
+     "upper_usd": 15.7118
+    }
+   ],
+   "rates_usd_per_million": {
+    "input": 1.0,
+    "output": 5.0
+   },
+   "total": {
+    "calls": 490.0,
+    "input_tokens_likely": 866445,
+    "input_tokens_upper": 1011832,
+    "likely_usd": 4.5414,
+    "output_tokens_likely": 735000,
+    "output_tokens_upper": 2940000,
+    "upper_usd": 15.7118
+   }
+  },
+  "C-budget": {
+   "arm": "C-budget",
+   "assumed_output_tokens": {
+    "decide": 1000,
+    "extract": 1300,
+    "note_budget": 1500
+   },
+   "at": "2026-10-27 01:00:29 UTC",
+   "model": "claude-haiku-5-5",
+   "parts": [
+    {
+     "calls": 490.0,
+     "input_tokens_likely": 880164,
+     "input_tokens_upper": 880164,
+     "likely_usd": 0.2278,
+     "note": "",
+     "output_tokens_likely": 735000,
+     "output_tokens_upper": 2940000,
+     "stage": "note A at 300",
+     "upper_usd": 0.779
+    },
+    {
+     "calls": 490.0,
+     "input_tokens_likely": 501760,
+     "input_tokens_upper": 609070,
+     "likely_usd": 0.1476,
+     "note": "note length assumed at the cap",
+     "output_tokens_likely": 490000,
+     "output_tokens_upper": 2940000,
+     "stage": "B on 300-token note",
+     "upper_usd": 0.7655
+    },
+    {
+     "calls": 490.0,
+     "input_tokens_likely": 880427,
+     "input_tokens_upper": 880427,
+     "likely_usd": 0.2278,
+     "note": "",
+     "output_tokens_likely": 735000,
+     "output_tokens_upper": 2940000,
+     "stage": "note A at 600",
+     "upper_usd": 0.779
+    },
+    {
+     "calls": 490.0,
+     "input_tokens_likely": 656110,
+     "input_tokens_upper": 779100,
+     "likely_usd": 0.1553,
+     "note": "note length assumed at the cap",
+     "output_tokens_likely": 490000,
+     "output_tokens_upper": 2940000,
+     "stage": "B on 600-token note",
+     "upper_usd": 0.774
+    }
+   ],
+   "rates_usd_per_million": {
+    "input": 0.05,
+    "output": 0.25
+   },
+   "total": {
+    "calls": 1960.0,
+    "input_tokens_likely": 2918461,
+    "input_tokens_upper": 3148761,
+    "likely_usd": 0.7585,
+    "output_tokens_likely": 2450000,
+    "output_tokens_upper": 11760000,
+    "upper_usd": 3.0975
+   }
+  }
+ }
+}

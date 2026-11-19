@@ -1,0 +1,33 @@
+{
+  "arm_configs": {
+    "A-extractive": "c0e229e99d4be622167b1a4390fc31aac967986fa89282349f5506ad991d5f12",
+    "A-stripped": "17f30d46193bb4ca8b127463c74b8bb23479ff8afbc4f5377329f3e2bb29bcc7",
+    "B-sonnet": "f6d7f078d5156a491d2dd5672ca25d5f5b8f07caf801a6b73ab99bda7e9fbaa3",
+    "B-sonnet-view": "4b0a2e0d22fb78bc1c78dad62e959cd0e61ef1a81c0c5d728cf0c87414304291",
+    "C-budget": "e7d7a544c1f1975c5d23414730e4f977f101e4d114280c805ef1314b2b1a6738"
+  },
+  "cases_sha256": "432e55ca579b74766e9097428fe513bd5a8c96496892dec1b023365ba1a4ed3c",
+  "frame_sha256": "bed6b1d00288354439f4a0459dc7d512cfc83245b369a141e9e4f1a88f6eb69f",
+  "frozen_at": "2026-10-27 00:05 UTC",
+  "local": "9af60c18151ba0a9b9196f765dcdc1cde722b93f63fd9c9e54e3d5d614140595",
+  "prompts": {
+    "x4.extract.prompt": "c8b8697b944b9ebded64e427ea7f408869f83d6d845ae1d8a79bd21cf35f3711",
+    "x4.extract.schema": "55976ef045f27a3d7d8f6ddeec88f80a0230c628286e62afef43d28371d10731",
+    "x4.note_budget.prompt.150": "d06b8aafacbcc2e16280c4e6ebd5069a2e5ec8baeb8e23a2e0829d435a08b6cd",
+    "x4.note_budget.prompt.300": "ed78331b70730c9f565ba6108b310b664f090fb557567c7c5dbbb47d0e80744f",
+    "x4.note_budget.prompt.600": "c98fcb27385d7ef144dd8d0675cd0f41c45c9ffd6a8fbddc0f68c403a0e4cc3e",
+    "x4.note_budget.schema": "23b194ce2295f649c6a2a17cdaedf6bccbc5ae05eda412d1d6a65c1af2ae88d0",
+    "x4.strip.rule": "11258fa7668fb82afb3ef0c4a26068532264300fe0da3b3f874e216598a0edc7"
+  },
+  "reused_v3": {
+    "decider.action_schema": "b5c809762c595781e481572d7b6ead5fb9ef9a4afa1e2afcae093ca81a69efbb",
+    "decider.v1": "f0828f379ef244779cec7c9e8fd2260b23b53f9da81cfd35bf0a8c4dd3673f04",
+    "decider.v1.inserted": "74be01664a51887455a9445a08edbf8eae8c1f75b9a34db9d924a1b9d9b5a8d0",
+    "decider.v2": "afa9c09a90ae59bfc1f92e858bc5d9d34125298c17c0bd74c1bfa70c9b9d718b",
+    "event_templates": "38f5302ef4a810a19679a838828c909cc0e1c753fd2676f6df5776c5af3ac919",
+    "file:render.py": "46567cebd52980297247f58f1c46ad315eac94ff3736427fe092bcb85dc6dfaf",
+    "note.prompt_p_residue": "d06b8aafacbcc2e16280c4e6ebd5069a2e5ec8baeb8e23a2e0829d435a08b6cd",
+    "note.schema": "23b194ce2295f649c6a2a17cdaedf6bccbc5ae05eda412d1d6a65c1af2ae88d0"
+  },
+  "version": "4-exploratory"
+}

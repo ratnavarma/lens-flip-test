@@ -1,0 +1,351 @@
+{
+ "bootstrap": {
+  "reps": 1000,
+  "seed": 11,
+  "unit": "case (paired)"
+ },
+ "facts": {
+  "c1_any_irrelevant_control_restores": {
+   "bounds95": [
+    22.4,
+    40.4
+   ],
+   "k": 39,
+   "method": "assessed v3 flips where at least one matched irrelevant control restored the action",
+   "n": 125,
+   "unit": "percent of assessed v3 flips",
+   "value": 31.2
+  },
+  "exploratory_contrasts_with_bounds": {
+   "detail": {
+    "bonferroni_two_sided_z_at_0.05": 3.09,
+    "in_tables": [
+     "Table 4 | Residue rate, extractive | Minus floor",
+     "Table 4 | Recoverable, extractive | Minus floor",
+     "Table 4 | Recoverable, extractive, verified | Minus floor",
+     "Table 4 | Residue rate, advice-stripped | Minus floor",
+     "Table 4 | Recoverable, paraphrased (v3) | Minus floor",
+     "Table 5 | Haiku 5.5 (v3) | Residue minus floor",
+     "Table 5 | Sonnet 5.5 | Residue minus floor",
+     "Table 6 | 300 | Minus 150",
+     "Table 6 | 600 | Minus 150",
+     "Table 7 | Flip rate, rewritten notes (C2) | Minus v3 residue",
+     "Table 7 | Flip rate, five repeats (C3) | Minus v3 residue",
+     "Table 8 | Targeted minus irrelevant | Rate",
+     "Table 9 | Omission | Points",
+     "Table 9 | Wording | Points",
+     "Table 9 | Unattributed | Points",
+     "Table 11 | Reader-conditioned (X1) | Minus v3",
+     "Table 11 | Reader-conditioned (X1) | AUROC minus v3",
+     "Table 12 | Minus v3 | X2, five fields, cut",
+     "Table 12 | Minus v3 | X2b, three fields, fits"
+    ],
+    "in_tables_restating_v3": [
+     "Table 4 | Recoverable, paraphrased (v3) | Minus floor",
+     "Table 5 | Haiku 5.5 (v3) | Residue minus floor"
+    ],
+    "in_text_only": {
+     "6.5.1 advice-stripped minus v3 residue rate": {
+      "bounds95": [
+       -6.4,
+       -0.2
+      ],
+      "value": -3.3
+     },
+     "6.5.1 the same on the notes the rule changed": {
+      "bounds95": [
+       -7.5,
+       -0.2
+      ],
+      "n": 418,
+      "value": -3.8
+     },
+     "6.5.2 Sonnet minus Haiku residue rate": {
+      "bounds95": [
+       -7.9,
+       -1.7
+      ],
+      "value": -4.7
+     },
+     "6.5.3 600 minus 300 tokens": {
+      "bounds95": [
+       -2.9,
+       5.1
+      ],
+      "value": 1.0
+     },
+     "6.5.5 targeted minus irrelevant, every sent control": {
+      "bounds95": [
+       7.2,
+       18.8
+      ],
+      "n": 137,
+      "value": 12.7
+     },
+     "6.5.6 writer AUROC minus semantic-omission AUROC, judge v2": {
+      "bounds95": [
+       0.1,
+       0.24
+      ],
+      "value": 0.17
+     },
+     "6.5.8 X2b minus X2 residue rate": {
+      "bounds95": [
+       -22.3,
+       -13.3
+      ],
+      "value": -17.6
+     },
+     "6.5.8 X2b recoverable minus the v3 floor": {
+      "bounds95": [
+       -4.5,
+       3.2
+      ],
+      "value": -0.6
+     }
+    },
+    "n_distinct_exploratory": 25,
+    "n_in_tables": 19,
+    "n_in_text_only": 8
+   },
+   "method": "difference cells with bounds in Tables 4 to 12, less the frozen v3 contrasts shown again, plus the differences with bounds that Sections 6.5.1 to 6.5.8 give in the text only",
+   "value": 25
+  },
+  "extractive_recoverable_minus_floor_on_summary_views": {
+   "bounds95": [
+    -3.8,
+    22.6
+   ],
+   "floor_rate": {
+    "bounds95": [
+     10.4,
+     26.2
+    ],
+    "value": 17.6
+   },
+   "method": "extractive arm (protocol v4), summary views only: recoverable flips minus the v3 rewording floor on the same handoffs, paired bootstrap by case",
+   "n": 85,
+   "recoverable_rate": {
+    "bounds95": [
+     17.6,
+     37.6
+    ],
+    "value": 27.1
+   },
+   "unit": "points of the eligible summary-view handoffs",
+   "value": 9.4
+  },
+  "floor_split_by_action": {
+   "method": "the rewording floor split by the floor decision's own action (REQUEST_INFO or not); paired bootstrap of flips with that action minus that part of the floor",
+   "unit": "points of the 490 eligible handoffs",
+   "value": {
+    "commit_flips": {
+     "bounds95": [
+      5.3,
+      10.0
+     ],
+     "k": 37,
+     "n": 490,
+     "value": 7.6
+    },
+    "commit_flips_minus_floor_commit_part": {
+     "bounds95": [
+      -2.2,
+      3.3
+     ],
+     "value": 0.4
+    },
+    "deferral_flips": {
+     "bounds95": [
+      17.6,
+      25.4
+     ],
+     "k": 105,
+     "n": 490,
+     "value": 21.4
+    },
+    "deferral_flips_minus_floor_deferral_part": {
+     "bounds95": [
+      14.4,
+      22.0
+     ],
+     "value": 18.2
+    },
+    "floor_commit_part": {
+     "bounds95": [
+      5.1,
+      9.4
+     ],
+     "k": 35,
+     "n": 490,
+     "value": 7.1
+    },
+    "floor_deferral_part": {
+     "bounds95": [
+      1.6,
+      5.3
+     ],
+     "k": 16,
+     "n": 490,
+     "value": 3.3
+    }
+   }
+  },
+  "h2b_flips_against_dstar_check_flips": {
+   "method": "H2b keeps event-view flips whose view holds every planted event; the D* check keeps flips whose view holds at least one planted unit. The difference is the flips with only part of D* in view",
+   "value": {
+    "dstar_check_at_least_one_planted_unit_in_view": 23,
+    "dstar_check_only": 1,
+    "dstar_check_only_detail": [
+     {
+      "case_id": "h11-0005",
+      "mechanism": "M1",
+      "planted_units_in_view": 1,
+      "system": "recent"
+     }
+    ],
+    "event_view_flips": 107,
+    "h2b_every_planted_event_in_view": 22,
+    "h2b_only": 0,
+    "h2b_with_a_restored_search": 10,
+    "in_both": 22,
+    "planted_units_in_dstar_check": 37
+   }
+  },
+  "histories_with_a_correction_event": {
+   "method": "cases.jsonl: histories with at least one event of type correction",
+   "of": 300,
+   "value": 62
+  },
+  "histories_with_all_event_types": {
+   "event_types": [
+    "adjustment",
+    "contact",
+    "correction",
+    "device",
+    "payment",
+    "plan_notice",
+    "reading",
+    "statement"
+   ],
+   "method": "cases.jsonl: histories whose events cover every event type that occurs in the sample",
+   "of": 300,
+   "value": 58
+  },
+  "histories_without_plan_notice": {
+   "method": "cases.jsonl: histories with no event of type plan_notice",
+   "of": 300,
+   "value": 16
+  },
+  "note_h11_0184_rag_embed": {
+   "cap": 150,
+   "method": "handoff_metrics_v3.jsonl: tokens are ceil(characters / 2.2); cut when the writer's reply was longer than the stored note; the cut backs up to the last whole word, so a cut note can be under 150",
+   "value": {
+    "cut_by_the_cap": true,
+    "ends_mid_sentence": true,
+    "note_tokens": 147,
+    "reply_tokens_before_the_cut": 151
+   }
+  },
+  "rule_oracle_on_the_headline_cases": {
+   "method": "generator.oracle applied to the events of each of the 300 cases in cases.jsonl and compared with a_star; for M1 to M3 the planted events are deleted first and the action must change",
+   "test_on_the_headline_cases": "tests/flip/test_rebuild_paper.py::test_oracle_agrees_on_the_300_headline_cases",
+   "tests_on_generated_samples": {
+    "tests/flip/test_generator.py::test_oracle_matches_a_star": "2,280 generated cases (seeds 1000 to 1011 and 77)",
+    "tests/flip/test_protocol_v3.py::test_oracle_agrees_on_every_v3_case": "2,160 generated cases (seeds 5000 to 5011)"
+   },
+   "value": {
+    "agree": 300,
+    "disagree": 0,
+    "of": 300,
+    "rare_cases": 90,
+    "rare_cases_where_deleting_the_planted_events_changes_the_action": 90
+   }
+  },
+  "seed_split": {
+   "method": "each case regenerated from seed 11 (generator version 2) and seed 12 (U2 only, version 3) and compared field by field with cases.jsonl",
+   "of": 300,
+   "seed_12_mechanisms": {
+    "U2": 30
+   },
+   "value": {
+    "seed_11": 270,
+    "seed_12": 30
+   }
+  },
+  "structured_form_fields": {
+   "method": "field names in order from the frozen reply schemas in src/lens/flip/explore5 (prompts.py and x2b_prompts.py); every reply also carries p_residue",
+   "schema_required": {
+    "X2": [
+     "leading_explanation",
+     "live_alternatives",
+     "missing_evidence",
+     "next_action",
+     "reversibility",
+     "p_residue"
+    ],
+    "X2b": [
+     "facts",
+     "changed",
+     "open",
+     "p_residue"
+    ]
+   },
+   "value": {
+    "X2_protocol_v5": [
+     "leading_explanation",
+     "live_alternatives",
+     "missing_evidence",
+     "next_action",
+     "reversibility"
+    ],
+    "X2b_protocol_v5b": [
+     "facts",
+     "changed",
+     "open"
+    ]
+   }
+  },
+  "v3_flips_never_reversed_in_five_repeats": {
+   "method": "v3 flips where none of the five C3 repeat decisions equals A's action",
+   "of": 142,
+   "share": {
+    "bounds95": [
+     67.8,
+     82.2
+    ],
+    "value": 75.4
+   },
+   "value": 107
+  },
+  "v3_notes_cut_by_the_cap": {
+   "method": "v3 notes whose reply was longer than the stored note (note_cut_at_cap); a note ends mid-sentence when its last character is not a full stop, question mark or exclamation mark",
+   "of": 490,
+   "value": {
+    "cut": 349,
+    "cut_and_end_mid_sentence": 331,
+    "cut_and_exactly_at_cap": 161,
+    "cut_and_within_2_tokens_of_cap": 300,
+    "end_mid_sentence": 331
+   }
+  },
+  "v3_notes_near_the_cap": {
+   "method": "v3 notes with note_tokens of 148 to 150, and with exactly 150",
+   "of": 490,
+   "value": {
+    "exactly_at_cap": 167,
+    "within_2_tokens_of_cap": 323
+   }
+  },
+  "writer_auroc_minus_names_action_flag_auroc": {
+   "bounds95": [
+    -0.019,
+    0.096
+   ],
+   "method": "AUROC of p_residue minus AUROC of the flag (1 when the note does not name A's action), same 490 handoffs, paired bootstrap by case",
+   "unit": "AUROC, pooled, v3",
+   "value": 0.038
+  }
+ },
+ "schema": "lens.flip.paper_facts/1"
+}
