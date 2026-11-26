@@ -2,7 +2,7 @@
 
 Status: design, 2026-10-20. Steps 1 to 5 built on branch flip-test-v0.
 
-Owner: Varma. Design by Claude (Opus). Build by Sonnet agents, runs by Haiku agents.
+Envisioned, Built and Owned by: Varma (Fnu Ratnavarma). AI-based assistants helped with code, experiment runs and checks.
 Parent plan: a private planning note (not released), section 4.
 
 ## 1. Purpose
